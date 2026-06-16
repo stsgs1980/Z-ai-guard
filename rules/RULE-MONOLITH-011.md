@@ -1,5 +1,3 @@
-# RULE-MONOLITH-011: Integrity protection (no self-sabotage)
-
 ---
 id: RULE-MONOLITH-011
 title: Integrity protection (no self-sabotage)
@@ -13,6 +11,8 @@ related:
   - RULE-MONOLITH-006
   - PROC-MONOLITH-SETUP
 ---
+
+# RULE-MONOLITH-011: Integrity protection (no self-sabotage)
 
 Agents MUST NOT disable, bypass, or weaken the anti-hallucination mechanisms.
 This rule is non-negotiable and applies regardless of task urgency.
@@ -37,5 +37,3 @@ This rule is non-negotiable and applies regardless of task urgency.
 - verify-docs detects missing or weakened checks
 - audit.sh scores integrity as part of session quality
 - CI pipeline runs verify-docs independently (cannot be bypassed locally)
-
-<!-- ID: RULE-MONOLITH-012 | ver:1.1 | Level: C | Related: RULE-MONOLITH-004, PROC-MONOLITH-LINECOUNT -->

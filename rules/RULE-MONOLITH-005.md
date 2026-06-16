@@ -1,5 +1,3 @@
-# RULE-MONOLITH-005: No loops
-
 ---
 id: RULE-MONOLITH-005
 title: No loops
@@ -13,9 +11,9 @@ related:
   - RULE-MONOLITH-006
 ---
 
+# RULE-MONOLITH-005: No loops
+
 - If you are doing the same thing for the 3rd time with the same result -> STOP
 - Do not try "once more, but differently"
 - Write in chat: "Stuck on [specific step], need help"
 - This is NOT a failure -- this saves user time
-
-<!-- ID: RULE-MONOLITH-006 | ver:1.0 | Level: C | Related: RULE-MONOLITH-011 -->

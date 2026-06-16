@@ -1,5 +1,3 @@
-# RULE-MONOLITH-001: Answer before act (no unsolicited action)
-
 ---
 id: RULE-MONOLITH-001
 title: Answer before act (no unsolicited action)
@@ -14,6 +12,8 @@ related:
   - RULE-MONOLITH-007
 ---
 
+# RULE-MONOLITH-001: Answer before act (no unsolicited action)
+
 IF ASKED A QUESTION -- ANSWER THE QUESTION. DO NOT START IMPLEMENTING.
 DO NOT CREATE FILES. DO NOT MODIFY CODE. DO NOT COMMIT.
 ONLY ACT WHEN GIVEN AN EXPLICIT TASK.
@@ -27,4 +27,3 @@ This rule is the FIRST rule for a reason. Every session, every agent,
 every time. Read it. Follow it.
 
 ---
-<!-- ID: RULE-MONOLITH-002 | ver:1.0 | Level: C | Related: RULE-MONOLITH-004, RULE-MONOLITH-007 -->

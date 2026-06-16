@@ -1,5 +1,3 @@
-# RULE-MONOLITH-002: worklog -- BEFORE and AFTER every action
-
 ---
 id: RULE-MONOLITH-002
 title: worklog -- BEFORE and AFTER every action
@@ -14,9 +12,9 @@ related:
   - RULE-MONOLITH-007
 ---
 
+# RULE-MONOLITH-002: worklog -- BEFORE and AFTER every action
+
 - Before ANY action: read /worklog.md
 - After ANY action: update /worklog.md
 - Format: only blocks with --- separator
 - Content: specific facts (files, commands, results)
-
-<!-- ID: RULE-MONOLITH-003 | ver:1.0 | Level: C | Related: RULE-MONOLITH-010 -->

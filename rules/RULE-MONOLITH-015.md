@@ -1,5 +1,3 @@
-# RULE-MONOLITH-015: No Unicode graphics (UNICODE_POLICY compliance)
-
 ---
 id: RULE-MONOLITH-015
 title: No Unicode graphics (UNICODE_POLICY compliance)
@@ -11,6 +9,8 @@ owning-standard: STD-META-001 v2.0
 last-updated: 2026-06-17
 related: []
 ---
+
+# RULE-MONOLITH-015: No Unicode graphics (UNICODE_POLICY compliance)
 
 All AHG output must comply with No-Unicode Policy v2.1.
 No emoji, no Unicode pictograms, no decorative symbols.
@@ -33,5 +33,3 @@ No emoji, no Unicode pictograms, no decorative symbols.
 - CLI output, scripts: [W] Warning
 - AI-agent chat responses: [W] Warning
 - Documentation (.md): regulated by MARKDOWN_STANDARD v2.1
-
-<!-- ID: RULE-MONOLITH-016 | ver:1.0 | Level: C | Related: RULE-MONOLITH-011 -->

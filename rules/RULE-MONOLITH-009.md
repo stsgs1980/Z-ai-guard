@@ -1,5 +1,3 @@
-# RULE-MONOLITH-009: Session Start Protocol (drift prevention)
-
 ---
 id: RULE-MONOLITH-009
 title: Session Start Protocol (drift prevention)
@@ -13,6 +11,8 @@ related:
   - RULE-MONOLITH-010
   - TOOL-MONOLITH-VERIFY
 ---
+
+# RULE-MONOLITH-009: Session Start Protocol (drift prevention)
 
 Before ANY work in a new session, the agent MUST:
 
@@ -31,5 +31,3 @@ Detection of drift (automatic flags):
 This rule prevents the most common documentation decay pattern:
 an agent writes code but does not update docs, causing documentation
 to gradually become misleading and unreliable.
-
-<!-- ID: RULE-MONOLITH-010 | ver:1.0 | Level: C | Related: RULE-MONOLITH-009, TOOL-MONOLITH-VERIFY -->

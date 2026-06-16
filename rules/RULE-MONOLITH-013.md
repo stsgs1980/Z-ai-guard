@@ -1,5 +1,3 @@
-# RULE-MONOLITH-013: Use ahg bump for version updates
-
 ---
 id: RULE-MONOLITH-013
 title: Use ahg bump for version updates
@@ -13,6 +11,8 @@ related:
   - TOOL-MONOLITH-BUMP
 ---
 
+# RULE-MONOLITH-013: Use ahg bump for version updates
+
 When changing the project version, use the atomic bump command:
   bash scripts/ahg.sh bump X.Y.Z
 
@@ -25,5 +25,3 @@ This command:
 Do NOT update versions manually in individual files.
 Manual updates cause version drift -- one file gets updated,
 another is forgotten. ahg bump eliminates this class of errors.
-
-<!-- ID: RULE-MONOLITH-014 | ver:1.1 | Level: C | Related: RULE-MONOLITH-002, RULE-MONOLITH-004, TOOL-MONOLITH-VERIFY -->

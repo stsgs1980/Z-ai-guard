@@ -1,5 +1,3 @@
-# RULE-MONOLITH-003: Read before write
-
 ---
 id: RULE-MONOLITH-003
 title: Read before write
@@ -13,8 +11,8 @@ related:
   - RULE-MONOLITH-010
 ---
 
+# RULE-MONOLITH-003: Read before write
+
 - NEVER write a file without reading it first (Read tool)
 - Exception: if file does not exist (verify via LS/Glob)
 - Reason: without reading, agent risks destroying existing code
-
-<!-- ID: RULE-MONOLITH-004 | ver:1.0 | Level: C | Related: RULE-MONOLITH-002 -->

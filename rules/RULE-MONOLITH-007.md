@@ -1,5 +1,3 @@
-# RULE-MONOLITH-007: Work structure
-
 ---
 id: RULE-MONOLITH-007
 title: Work structure
@@ -14,11 +12,11 @@ related:
   - RULE-MONOLITH-004
 ---
 
+# RULE-MONOLITH-007: Work structure
+
 1. Read AGENT_RULES.md and worklog.md
 2. Determine the specific next step
 3. Execute the step
 4. Record in worklog
 5. Git commit
 6. Go to step 2
-
-<!-- ID: RULE-MONOLITH-008 | ver:1.0 | Level: C | Related: STD-ENV-001, STD-ENV-002 -->

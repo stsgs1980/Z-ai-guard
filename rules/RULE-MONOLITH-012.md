@@ -1,5 +1,3 @@
-# RULE-MONOLITH-012: Anti-monolith (no file over 250 lines)
-
 ---
 id: RULE-MONOLITH-012
 title: Anti-monolith (no file over 250 lines)
@@ -13,6 +11,8 @@ related:
   - RULE-MONOLITH-004
   - PROC-MONOLITH-LINECOUNT
 ---
+
+# RULE-MONOLITH-012: Anti-monolith (no file over 250 lines)
 
 Every file MUST stay under 250 lines. When a file crosses this threshold,
 the agent MUST stop writing, split the file, and continue with smaller modules.
@@ -47,5 +47,3 @@ Violations are BLOCKED automatically -- the commit will not succeed.
 - File exceeds 400 lines (no excuses, decompose)
 - "I'll refactor later" (later never comes)
 - "It's easier to read in one file" (that's what imports are for)
-
-<!-- ID: RULE-MONOLITH-013 | ver:1.1 | Level: C | Related: TOOL-MONOLITH-BUMP -->

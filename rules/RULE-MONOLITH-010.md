@@ -1,5 +1,3 @@
-# RULE-MONOLITH-010: Documentation sync (no code without docs)
-
 ---
 id: RULE-MONOLITH-010
 title: Documentation sync (no code without docs)
@@ -13,6 +11,8 @@ related:
   - RULE-MONOLITH-009
   - TOOL-MONOLITH-VERIFY
 ---
+
+# RULE-MONOLITH-010: Documentation sync (no code without docs)
 
 When changing the codebase, documentation MUST be kept in sync:
 
@@ -28,5 +28,3 @@ Pre-commit checklist:
 - [ ] README.md does not contain stale "stubs"?
 - [ ] task state file statuses are current?
 - [ ] verify-docs passes without errors?
-
-<!-- ID: RULE-MONOLITH-011 | ver:1.0 | Level: C | Related: RULE-MONOLITH-006, PROC-MONOLITH-SETUP -->

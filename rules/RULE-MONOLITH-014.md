@@ -1,5 +1,3 @@
-# RULE-MONOLITH-014: Pre-commit mandatory checklist
-
 ---
 id: RULE-MONOLITH-014
 title: Pre-commit mandatory checklist
@@ -15,6 +13,8 @@ related:
   - TOOL-MONOLITH-VERIFY
 ---
 
+# RULE-MONOLITH-014: Pre-commit mandatory checklist
+
 Before EVERY commit, verify ALL of these items:
 - [ ] Code written and tested
 - [ ] worklog.md updated (hook will verify freshness)
@@ -26,5 +26,3 @@ Before EVERY commit, verify ALL of these items:
 
 If ANY item is unclear: run "bash scripts/ahg.sh discover" first.
 Do NOT commit with known documentation drift.
-
-<!-- ID: RULE-MONOLITH-015 | ver:1.0 | Level: W | Related: -->
