@@ -1,0 +1,35 @@
+# RULE-MONOLITH-009: Session Start Protocol (drift prevention)
+
+---
+id: RULE-MONOLITH-009
+title: Session Start Protocol (drift prevention)
+version: 1.0
+level: [C]
+status: ACTIVE
+source: AHG v2.5.0 (RULE-009)
+owning-standard: STD-META-001 v2.0
+last-updated: 2026-06-17
+related:
+  - RULE-MONOLITH-010
+  - TOOL-MONOLITH-VERIFY
+---
+
+Before ANY work in a new session, the agent MUST:
+
+1. **Scan project structure**: list source files to understand what exists
+2. **Read version source of truth** (manifest.json, package.json, etc.)
+3. **Compare actual structure with documentation** (ARCHITECTURE.md, README)
+4. **If drift > 3 items**: UPDATE DOCUMENTATION FIRST, then do the task
+5. **Record scan results** in worklog.md
+
+Detection of drift (automatic flags):
+- New files not in ARCHITECTURE.md or docCoverage targets -> flag
+- Stub markers in docs but implementation files exist -> flag
+- Version in docs != version in source of truth -> flag
+- Files mentioned in docs that no longer exist -> flag
+
+This rule prevents the most common documentation decay pattern:
+an agent writes code but does not update docs, causing documentation
+to gradually become misleading and unreliable.
+
+<!-- ID: RULE-MONOLITH-010 | ver:1.0 | Level: C | Related: RULE-MONOLITH-009, TOOL-MONOLITH-VERIFY -->

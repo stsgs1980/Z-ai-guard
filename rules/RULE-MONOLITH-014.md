@@ -1,0 +1,30 @@
+# RULE-MONOLITH-014: Pre-commit mandatory checklist
+
+---
+id: RULE-MONOLITH-014
+title: Pre-commit mandatory checklist
+version: 1.1
+level: [C]
+status: ACTIVE
+source: AHG v2.5.0 (RULE-014)
+owning-standard: STD-META-001 v2.0
+last-updated: 2026-06-17
+related:
+  - RULE-MONOLITH-002
+  - RULE-MONOLITH-004
+  - TOOL-MONOLITH-VERIFY
+---
+
+Before EVERY commit, verify ALL of these items:
+- [ ] Code written and tested
+- [ ] worklog.md updated (hook will verify freshness)
+- [ ] If version changed: ahg bump used (not manual edit)
+- [ ] If new files added: documented in README/ARCHITECTURE
+- [ ] If files deleted: no stale references remain
+- [ ] cascade-state.json: task statuses current (auto-sync in hook)
+- [ ] verify-docs passes (or discover shows no errors)
+
+If ANY item is unclear: run "bash scripts/ahg.sh discover" first.
+Do NOT commit with known documentation drift.
+
+<!-- ID: RULE-MONOLITH-015 | ver:1.0 | Level: W | Related: -->
