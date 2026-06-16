@@ -8,8 +8,7 @@ source: AHG v2.5.0 (RULE-002)
 owning-standard: STD-META-001 v2.0
 last-updated: 2026-06-17
 related:
-  - RULE-MONOLITH-004
-  - RULE-MONOLITH-007
+  - STD-META-001
 ---
 
 # RULE-MONOLITH-002: worklog -- BEFORE and AFTER every action

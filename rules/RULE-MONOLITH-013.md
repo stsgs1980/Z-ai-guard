@@ -9,6 +9,7 @@ owning-standard: STD-META-001 v2.0
 last-updated: 2026-06-17
 related:
   - TOOL-MONOLITH-BUMP
+  - RULE-MONOLITH-002
 ---
 
 # RULE-MONOLITH-013: Use ahg bump for version updates

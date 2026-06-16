@@ -7,7 +7,8 @@ status: ACTIVE
 source: AHG v2.5.0 (RULE-015)
 owning-standard: STD-META-001 v2.0
 last-updated: 2026-06-17
-related: []
+related:
+  - STD-DOC-002
 ---
 
 # RULE-MONOLITH-015: No Unicode graphics (UNICODE_POLICY compliance)

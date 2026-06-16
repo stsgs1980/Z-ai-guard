@@ -8,8 +8,8 @@ source: AHG v2.5.0 (RULE-010)
 owning-standard: STD-META-001 v2.0
 last-updated: 2026-06-17
 related:
-  - RULE-MONOLITH-009
   - TOOL-MONOLITH-VERIFY
+  - STD-DOC-002
 ---
 
 # RULE-MONOLITH-010: Documentation sync (no code without docs)

@@ -10,6 +10,7 @@ last-updated: 2026-06-17
 related:
   - RULE-MONOLITH-004
   - PROC-MONOLITH-LINECOUNT
+  - STD-SKILL-001
 ---
 
 # RULE-MONOLITH-012: Anti-monolith (no file over 250 lines)

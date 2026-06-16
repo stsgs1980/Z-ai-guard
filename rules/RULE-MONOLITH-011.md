@@ -8,8 +8,8 @@ source: AHG v2.5.0 (RULE-011)
 owning-standard: STD-META-001 v2.0
 last-updated: 2026-06-17
 related:
-  - RULE-MONOLITH-006
   - PROC-MONOLITH-SETUP
+  - STD-ENV-001
 ---
 
 # RULE-MONOLITH-011: Integrity protection (no self-sabotage)
