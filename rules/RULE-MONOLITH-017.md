@@ -10,6 +10,7 @@ last-updated: 2026-06-17
 related:
   - RULE-MONOLITH-011
   - RULE-MONOLITH-016
+  - STD-ARCH-001
 ---
 
 # RULE-MONOLITH-017: Upstream write protection (no consumer agent may push to AHG)

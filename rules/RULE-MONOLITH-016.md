@@ -9,6 +9,7 @@ owning-standard: STD-META-001 v2.0
 last-updated: 2026-06-17
 related:
   - RULE-MONOLITH-011
+  - STD-ARCH-001
 ---
 
 # RULE-MONOLITH-016: AHG submodule is immutable architecture (no removal, no inlining)
