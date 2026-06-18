@@ -10,6 +10,7 @@ last-updated: 2026-06-17
 related:
   - RULE-MONOLITH-002
   - RULE-MONOLITH-004
+  - STD-AGENT-002
 ---
 
 # RULE-MONOLITH-007: Work structure

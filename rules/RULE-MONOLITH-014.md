@@ -11,6 +11,7 @@ related:
   - RULE-MONOLITH-002
   - RULE-MONOLITH-004
   - TOOL-MONOLITH-VERIFY
+  - STD-SEC-002
 ---
 
 # RULE-MONOLITH-014: Pre-commit mandatory checklist

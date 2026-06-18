@@ -10,6 +10,7 @@ last-updated: 2026-06-17
 related:
   - STD-ENV-001
   - STD-ENV-002
+  - STD-GIT-002
 ---
 
 # RULE-MONOLITH-008: Sandbox verification (no fake setup)
