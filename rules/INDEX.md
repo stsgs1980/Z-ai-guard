@@ -2,8 +2,8 @@
 
 > Source: Anti-Hallucination-Guard v2.5.0
 > Migration: M002 (see Z-ai-standards/MIGRATIONS.md)
-> Owning standard: STD-META-001 v2.0
-> Last Updated: 2026-06-17
+> Owning standard: STD-META-001 v2.0.2
+> Last Updated: 2026-06-19
 
 All 17 rules migrated from AHG `AGENT_RULES.md` RULE-001..017.
 ID references inside rule bodies have been rewritten:
@@ -27,7 +27,7 @@ ID references inside rule bodies have been rewritten:
 | RULE-MONOLITH-009 | Session Start Protocol (drift prevention) | v1.0 | critical | AHG RULE-009 |
 | RULE-MONOLITH-010 | Documentation sync (no code without docs) | v1.0 | critical | AHG RULE-010 |
 | RULE-MONOLITH-011 | Integrity protection (no self-sabotage) | v1.0 | critical | AHG RULE-011 |
-| RULE-MONOLITH-012 | Anti-monolith (no file over 250 lines) | v1.1 | critical | AHG RULE-012 |
+| RULE-MONOLITH-012 | Anti-monolith (file size by category) | v1.2 | critical | AHG RULE-012 |
 | RULE-MONOLITH-013 | Use ahg bump for version updates | v1.1 | critical | AHG RULE-013 |
 | RULE-MONOLITH-014 | Pre-commit mandatory checklist | v1.1 | critical | AHG RULE-014 |
 | RULE-MONOLITH-015 | No Unicode graphics (UNICODE_POLICY compliance) | v1.0 | warning | AHG RULE-015 |
