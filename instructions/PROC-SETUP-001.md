@@ -3,7 +3,7 @@ id: PROC-SETUP-001
 title: Project installer procedure
 version: 2.0
 level: [C]
-status: ACTIVE (planned)
+status: ACTIVE
 implements: null
 calls: []
 owning-standard: STD-META-001 v2.0.4
@@ -18,7 +18,7 @@ last-updated: 2026-06-22
 > Last Updated: 2026-06-22
 > Related: STD-META-001 (ID system), RULE-MONOLITH-008 (sandbox verification — setup must verify)
 
-> **Status:** ACTIVE (planned). File `Z-ai-guard/setup.sh` not yet created.
+> **Status:** ACTIVE. Implemented by `guard/scripts/setup-001.sh`.
 > Three platform-side procedures (PROC-PLATFORM-005/006/007) were retired
 > 2026-06-19 because `bootstrap.sh` covers install + update + restore as a
 > single entry point. This procedure remains planned for guard-side
@@ -32,7 +32,7 @@ platform-side installer and supersedes the retired PROC-PLATFORM-005).
 
 Typical trigger:
 ```bash
-bash guard/scripts/setup.sh
+bash guard/scripts/setup-001.sh
 ```
 
 ## What it does (planned scope)

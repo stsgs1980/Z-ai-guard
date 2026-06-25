@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-25T18:59:40Z",
+  "generated_at": "2026-06-25T19:44:15Z",
   "platform_version": "v2.6.0",
-  "standards_sha": "a259a6b",
-  "guard_sha": "2e2579d",
+  "standards_sha": "1967ca4",
+  "guard_sha": "10e3766",
   "counts": {
     "RULE": 17,
     "PROC": 4,
@@ -267,7 +267,7 @@
     },
     {
       "id": "TOOL-VERIFY-001",
-      "title": "verify-docs (guard-side, planned)",
+      "title": "verify-docs.sh (guard-side docs invariants)",
       "version": "2.1",
       "level": "critical",
       "status": "ACTIVE",
@@ -315,7 +315,7 @@
     },
     {
       "id": "TOOL-BUMP-005",
-      "title": "bump (version bumper, planned)",
+      "title": "bump.sh (version bumper, semver-aware)",
       "version": "2.1",
       "level": "critical",
       "status": "ACTIVE",

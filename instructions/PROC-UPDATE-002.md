@@ -3,7 +3,7 @@ id: PROC-UPDATE-002
 title: Project update procedure
 version: 2.1
 level: [C]
-status: ACTIVE (planned)
+status: ACTIVE
 implements: null
 calls: []
 owning-standard: STD-META-001 v2.0.4
@@ -18,7 +18,7 @@ last-updated: 2026-06-22
 > Last Updated: 2026-06-22
 > Related: STD-META-001 (ID system), RULE-MONOLITH-009 (session start protocol — update runs at session start), PROC-SETUP-001 (setup runs before update)
 
-> **Status:** ACTIVE (planned). File `Z-ai-guard/update.sh` not yet created.
+> **Status:** ACTIVE. Implemented by `guard/scripts/update-002.sh`.
 > Three platform-side procedures (PROC-PLATFORM-005/006/007) were retired
 > 2026-06-19 because `bootstrap.sh` covers install + update + restore.
 > This procedure remains planned for guard-side update steps.
@@ -30,7 +30,7 @@ Z-ai-guard workspace up to date after a `git pull` of the guard submodule.
 
 Typical trigger:
 ```bash
-bash guard/scripts/update.sh
+bash guard/scripts/update-002.sh
 ```
 
 ## What it does (planned scope)

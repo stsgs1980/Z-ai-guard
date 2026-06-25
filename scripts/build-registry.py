@@ -205,17 +205,24 @@ def _proc_calls(pid: str) -> list:
 
 def _tool_title(tid: str) -> str:
     titles = {
-        "TOOL-VERIFY-001": "verify-docs (guard-side, planned)",
+        "TOOL-VERIFY-001": "verify-docs.sh (guard-side docs invariants)",
         "TOOL-VERIFY-002": "verify-standards.js",
         "TOOL-VERIFY-003": "[RETIRED] verify-cascade.js",
         "TOOL-VERIFY-004": "verify-id-graph.js",
-        "TOOL-BUMP-005": "bump (version bumper, planned)",
+        "TOOL-BUMP-005": "bump.sh (version bumper, semver-aware)",
         "TOOL-CHECKUPDATES-006": "check-updates.sh",
     }
     return titles.get(tid, tid)
 
 
 def main():
+    import argparse
+    parser = argparse.ArgumentParser(description="Auto-generate guard/registry.json")
+    parser.add_argument("--output", "-o", default=str(OUTPUT),
+                        help=f"Output path (default: {OUTPUT})")
+    args = parser.parse_args()
+    output_path = Path(args.output)
+
     if not RULES_INDEX.exists():
         sys.exit(f"ERROR: {RULES_INDEX} not found")
     if not ID_REGISTRY.exists():
@@ -239,8 +246,8 @@ def main():
         "ids": all_ids,
     }
 
-    OUTPUT.write_text(json.dumps(registry, indent=2, ensure_ascii=False) + "\n")
-    print(f"OK: wrote {OUTPUT}")
+    output_path.write_text(json.dumps(registry, indent=2, ensure_ascii=False) + "\n")
+    print(f"OK: wrote {output_path}")
     print(f"   {registry['counts']['RULE']} RULE + {registry['counts']['PROC']} PROC + {registry['counts']['TOOL']} TOOL = {registry['counts']['total']} IDs")
     print(f"   platform={registry['platform_version']}  standards@{registry['standards_sha']}  guard@{registry['guard_sha']}")
 
