@@ -9,6 +9,25 @@ This repository hosts the **enforcement layer** for the Z-ai ecosystem:
 rules (what agents must do), procedures (what runs when a rule fires),
 and tools (the scripts rules call).
 
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
+
+
+## Table of Contents
+
+- [Current state (audited 2026-06-25)](#current-state-audited-2026-06-25)
+- [Repository layout (actual)](#repository-layout-actual)
+- [Repository layout (planned, after M003 + M004)](#repository-layout-planned,-after-m003-+-m004)
+- [Migration plan (from AHG v2.5.0)](#migration-plan-from-ahg-v250)
+- [Procedures (PROC-)](#procedures-proc-)
+- [Tools (TOOL-)](#tools-tool-)
+- [Known inconsistencies (as of 2026-06-19)](#known-inconsistencies-as-of-2026-06-19)
+- [Status summary](#status-summary)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [License](#license)
+
 ## Current state (audited 2026-06-25)
 
 | Component   | Count | Status                                                                                          |
@@ -33,7 +52,7 @@ guard-specific cross-reference checks.
 
 ## Repository layout (actual)
 
-```
+```bash
 Z-ai-guard/
 ├── README.md                  # This file
 ├── registry.json              # Auto-generated registry (27 IDs: 17 RULE + 4 PROC + 6 TOOL)
@@ -69,7 +88,7 @@ Z-ai-guard/
 
 ## Repository layout (planned, after M003 + M004)
 
-```
+```bash
 Z-ai-guard/
 ├── AGENT_RULES.md             # All RULE-* declarations (HTML-comment header format)
 ├── rules/                     # ✅ EXISTS — detailed rule docs
@@ -85,7 +104,7 @@ Z-ai-guard/
 
 Per STD-META-001 §11.2 and `Z-ai-standards/MIGRATIONS.md`:
 
-### M002 — RULE-001..RULE-017 → RULE-MONOLITH-001..RULE-MONOLITH-017 (COMPLETE)
+### M002 - RULE-001..RULE-017 → RULE-MONOLITH-001..RULE-MONOLITH-017 (COMPLETE)
 
 | Legacy       | New ID               | Rule Name                                  |
 |--------------|----------------------|--------------------------------------------|
@@ -113,7 +132,7 @@ not exist anywhere in the current ID graph (AHG upstream is not a
 tracked submodule). The new IDs are already active; the window will
 formally open only if/when AHG content is imported.
 
-### M003 — AHG PROC-XXX → PROC-MONOLITH-XXX (COMPLETE 2026-06-25)
+### M003 - AHG PROC-XXX → PROC-MONOLITH-XXX (COMPLETE 2026-06-25)
 
 All 4 PROC migrated and ACTIVE with executable scripts:
 
@@ -124,7 +143,7 @@ All 4 PROC migrated and ACTIVE with executable scripts:
 | PROC-COCHANGE-003      | scripts/co-change-check.sh           | 1.0     | [C]   | RULE-MONOLITH-010      |
 | PROC-LINECOUNT-004     | scripts/line-count-check.sh          | 1.0     | [C]   | RULE-MONOLITH-012      |
 
-### M004 — AHG TOOL-XXX → TOOL-MONOLITH-XXX (COMPLETE 2026-06-25)
+### M004 - AHG TOOL-XXX → TOOL-MONOLITH-XXX (COMPLETE 2026-06-25)
 
 2 new TOOL migrated and ACTIVE. (TOOL-VERIFY-002/004 already existed in
 standards/ submodule. TOOL-VERIFY-003 retired. TOOL-CHECKUPDATES-006 lives
@@ -208,3 +227,39 @@ This repo currently holds the **policy text** (17 rules) but not the
 L1 (standards) only. L2 enforcement will activate after M003 + M004
 land and the dangling references in section 2 above are rewritten to
 the proper `<DOMAIN>-<NNN>` IDs.
+
+
+## Features
+
+- Feature 1 - description
+- Feature 2 - description
+
+
+## Tech Stack
+
+- **Styling** - HTML
+
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 20+ or Bun
+
+### Installation
+
+```bash
+git clone https://github.com/stsgs1980/Z-ai-guard.git
+cd Z-ai-guard
+bun install
+```
+
+### Run
+
+```bash
+bun run dev
+```
+
+## License
+
+[MIT](LICENSE)
