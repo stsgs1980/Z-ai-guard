@@ -36,15 +36,15 @@ bash guard/scripts/line-count-check.sh --hard    # hard fail (exit 1)
 ## What it does
 
 1. Run `verify-standards.js` — checks V11 (all .md in standards/ + docs/
-   + templates/ ≤ 1000 lines)
+   + templates/ <= 1000 lines)
 2. Run `verify-skills.js --strict` — checks:
-   - S10a: SKILL.md ≤ 800 lines
-   - S10b: CONTRACT.md ≤ 500 lines
-   - S10c: README.md ≤ 400 lines
+   - S10a: SKILL.md <= 800 lines
+   - S10b: CONTRACT.md <= 500 lines
+   - S10c: README.md <= 400 lines
 3. Aggregate results:
-   - 0 offenders → PASS (exit 0)
-   - offenders + `--hard` → FAIL (exit 1)
-   - offenders + no `--hard` → WARN (exit 0)
+   - 0 offenders -> PASS (exit 0)
+   - offenders + `--hard` -> FAIL (exit 1)
+   - offenders + no `--hard` -> WARN (exit 0)
 
 ## Why delegation (not direct matrix parsing)
 

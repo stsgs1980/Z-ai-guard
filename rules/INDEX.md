@@ -7,10 +7,10 @@
 
 All 17 rules migrated from AHG `AGENT_RULES.md` RULE-001..017.
 ID references inside rule bodies have been rewritten:
-- `RULE-XXX` → `RULE-MONOLITH-XXX`
-- `PROC-XXX` → `PROC-MONOLITH-XXX`
-- `TOOL-XXX` → `TOOL-MONOLITH-XXX`
-- `STD-ENV-XXX` → kept as-is (pending separate migration)
+- `RULE-XXX` -> `RULE-MONOLITH-XXX`
+- `PROC-XXX` -> `PROC-MONOLITH-XXX`
+- `TOOL-XXX` -> `TOOL-MONOLITH-XXX`
+- `STD-ENV-XXX` -> kept as-is (pending separate migration)
 
 ## Rule Catalog
 
@@ -36,8 +36,8 @@ ID references inside rule bodies have been rewritten:
 
 ## Related Migrations
 
-- **M002**: Rename RULE-001..017 → RULE-MONOLITH-001..017 (this migration, COMPLETE)
-- **Pending**: Migrate AHG PROC-XXX → PROC-MONOLITH-XXX (5 procedures)
-- **Pending**: Migrate AHG TOOL-XXX → TOOL-MONOLITH-XXX (3 tools)
-- **Pending**: Migrate AHG STD-ENV-001/002 → STD-ENV-001/002 (2 standards)
+- **M002**: Rename RULE-001..017 -> RULE-MONOLITH-001..017 (this migration, COMPLETE)
+- **Pending**: Migrate AHG PROC-XXX -> PROC-MONOLITH-XXX (5 procedures)
+- **Pending**: Migrate AHG TOOL-XXX -> TOOL-MONOLITH-XXX (3 tools)
+- **Pending**: Migrate AHG STD-ENV-001/002 -> STD-ENV-001/002 (2 standards)
 

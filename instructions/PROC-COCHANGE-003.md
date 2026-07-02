@@ -46,9 +46,9 @@ Platform's `install-hooks.sh` can do this; see §"Integration" below.
    - **config** (`.json`/`.yml`/`.toml`/`.ini`)
    - **lockfile** (package-lock, yarn.lock, Cargo.lock, etc.)
 3. Decision:
-   - No code staged → PASS (pure-docs/config/lockfile commit)
-   - Code + at least one .md → PASS
-   - Code without .md → VIOLATION (RULE-MONOLITH-010)
+   - No code staged -> PASS (pure-docs/config/lockfile commit)
+   - Code + at least one .md -> PASS
+   - Code without .md -> VIOLATION (RULE-MONOLITH-010)
 4. Print summary, exit 0 (PASS/SOFT-WARN) or 1 (FAIL in --hard mode)
 
 ## Exemptions
@@ -58,7 +58,7 @@ Platform's `install-hooks.sh` can do this; see §"Integration" below.
 | Lockfiles (package-lock, etc.) | YES | Auto-generated, no doc meaning |
 | Test files (.test.*, .spec.*) | YES | Tests are themselves a form of docs |
 | Config files (.json, .yml, .toml) | YES | Naturally flat, no narrative to sync |
-| Pure-docs commits | YES | No code → rule does not apply |
+| Pure-docs commits | YES | No code -> rule does not apply |
 | Auto-generated code | YES | If header comment marks it as generated |
 
 ## Inputs
