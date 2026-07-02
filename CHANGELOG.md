@@ -8,6 +8,25 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/) and this 
 
 ---
 
+## [1.1.0] - 2026-07-02
+
+### Added
+- `eslint.config.js`, `eslint-rules/unicode-policy.js`, `eslint-rules/raw-text-parser.js`
+- `.github/workflows/lint-markdown.yml` (CI workflow, not pushed to remote)
+- `.gitignore` (node_modules/)
+- `package.json` (eslint devDependency)
+- `worklog.md` and `CHANGELOG.md`
+
+### Changed
+- Bulk Unicode replacement: `->` (15), `<=` (4) across 3 files
+  - `rules/INDEX.md`, `instructions/PROC-LINECOUNT-004.md`, `instructions/PROC-COCHANGE-003.md`
+
+### Fixed
+- `scripts/co-change-check.sh`: replaced hardcoded Linux path with auto-detection via `BASH_SOURCE`
+- `scripts/co-change-check.sh`: CRLF -> LF line endings (bash compatibility)
+
+---
+
 ## [1.0.0] - 2026-07-02
 
 ### Added
