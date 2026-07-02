@@ -34,7 +34,8 @@
 set -euo pipefail
 
 HARD_MODE=0
-PLATFORM_DIR="/home/z/my-project/Z-ai-platform"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PLATFORM_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
 if [[ "${1:-}" == "--help" || "${1:-}" == "-h" ]]; then
     sed -n '2,30p' "$0"
