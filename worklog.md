@@ -58,6 +58,28 @@ bash scripts/co-change-check.sh  # PASS (auto-detected platform dir)
 - `7eefbd8` fix: replace Unicode arrows with ASCII equivalents
 - `a624215` fix: auto-detect platform dir + LF line endings
 
-**Note:** `.github/workflows/lint-markdown.yml` not pushed to remote (OAuth token lacks `workflow` scope). File exists locally.
+**Note:** All files pushed to remote (PAT with `workflow` scope obtained via `gh auth refresh`).
+
+---
+
+### 2026-07-03 00:15-00:30
+**Entry:** Push lint-markdown workflow + checkout bump
+
+**Work completed:**
+
+1. **Synced local `main` to `origin/main`** (was 5 commits behind, detached HEAD)
+
+2. **Created `.github/workflows/lint-markdown.yml`** (modeled on skills workflow)
+   - Committed `9d5e889`: `ci: add lint-markdown workflow (STD-DOC-002, STD-DOC-003)`
+   - CI run #28630011239 = GREEN (14s)
+
+3. **Bumped `actions/checkout@v4` to `v5`** (Node 24, drop deprecation warning)
+   - Committed `a2e4147`: `ci: bump actions/checkout v4 -> v5 (Node 24, drop deprecation)`
+   - CI run #28630864660 = GREEN
+
+**Verification:**
+```bash
+npx eslint . --max-warnings=0    # 0 errors, 0 warnings
+```
 
 ---
