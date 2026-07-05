@@ -1,5 +1,5 @@
 ---
-id: RULE-MONOLITH-016
+id: RULE-ARCH-016
 title: AHG submodule is immutable architecture (no removal, no inlining)
 version: 1.0
 level: [C]
@@ -12,7 +12,7 @@ related:
   - STD-ARCH-001
 ---
 
-# RULE-MONOLITH-016: AHG submodule is immutable architecture (no removal, no inlining)
+# RULE-ARCH-016: AHG submodule is immutable architecture (no removal, no inlining)
 
 The anti-hallucination-guard git submodule is a structural component of this
 project, not an optional dependency. Agents MUST NOT propose or execute any

@@ -1,5 +1,5 @@
 ---
-id: RULE-MONOLITH-003
+id: RULE-READ-003
 title: Read before write
 version: 1.0
 level: [C]
@@ -11,7 +11,7 @@ related:
   - RULE-MONOLITH-010
 ---
 
-# RULE-MONOLITH-003: Read before write
+# RULE-READ-003: Read before write
 
 - NEVER write a file without reading it first (Read tool)
 - Exception: if file does not exist (verify via LS/Glob)

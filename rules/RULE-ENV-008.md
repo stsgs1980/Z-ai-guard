@@ -1,5 +1,5 @@
 ---
-id: RULE-MONOLITH-008
+id: RULE-ENV-008
 title: Sandbox verification (no fake setup)
 version: 1.0
 level: [C]
@@ -13,7 +13,7 @@ related:
   - STD-GIT-002
 ---
 
-# RULE-MONOLITH-008: Sandbox verification (no fake setup)
+# RULE-ENV-008: Sandbox verification (no fake setup)
 
 Agents MUST verify sandbox infrastructure is real before proceeding. Known anti-hallucination patterns in Z.ai Sandbox:
 

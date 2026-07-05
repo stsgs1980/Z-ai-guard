@@ -1,5 +1,5 @@
 ---
-id: RULE-MONOLITH-013
+id: RULE-VERSION-013
 title: Use ahg bump for version updates
 version: 1.1
 level: [C]
@@ -12,7 +12,7 @@ related:
   - RULE-MONOLITH-002
 ---
 
-# RULE-MONOLITH-013: Use ahg bump for version updates
+# RULE-VERSION-013: Use ahg bump for version updates
 
 When changing the project version, use the atomic bump command:
   bash scripts/ahg.sh bump X.Y.Z

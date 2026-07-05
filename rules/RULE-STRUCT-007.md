@@ -1,5 +1,5 @@
 ---
-id: RULE-MONOLITH-007
+id: RULE-STRUCT-007
 title: Work structure
 version: 1.0
 level: [W]
@@ -13,7 +13,7 @@ related:
   - STD-AGENT-002
 ---
 
-# RULE-MONOLITH-007: Work structure
+# RULE-STRUCT-007: Work structure
 
 1. Read AGENT_RULES.md and worklog.md
 2. Determine the specific next step

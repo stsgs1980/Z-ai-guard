@@ -1,5 +1,5 @@
 ---
-id: RULE-MONOLITH-009
+id: RULE-AGENT-009
 title: Session Start Protocol (drift prevention)
 version: 1.0
 level: [C]
@@ -12,7 +12,7 @@ related:
   - TOOL-MONOLITH-VERIFY
 ---
 
-# RULE-MONOLITH-009: Session Start Protocol (drift prevention)
+# RULE-AGENT-009: Session Start Protocol (drift prevention)
 
 Before ANY work in a new session, the agent MUST:
 

@@ -1,5 +1,5 @@
 ---
-id: RULE-MONOLITH-015
+id: RULE-DOC-015
 title: No Unicode graphics (UNICODE_POLICY compliance)
 version: 1.0
 level: [W]
@@ -11,7 +11,7 @@ related:
   - STD-DOC-002
 ---
 
-# RULE-MONOLITH-015: No Unicode graphics (UNICODE_POLICY compliance)
+# RULE-DOC-015: No Unicode graphics (UNICODE_POLICY compliance)
 
 All AHG output must comply with No-Unicode Policy v2.1.
 No emoji, no Unicode pictograms, no decorative symbols.

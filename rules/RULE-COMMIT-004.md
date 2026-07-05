@@ -1,5 +1,5 @@
 ---
-id: RULE-MONOLITH-004
+id: RULE-COMMIT-004
 title: One logical block -- one commit
 version: 1.0
 level: [C]
@@ -11,7 +11,7 @@ related:
   - RULE-MONOLITH-002
 ---
 
-# RULE-MONOLITH-004: One logical block -- one commit
+# RULE-COMMIT-004: One logical block -- one commit
 
 - Finished a meaningful chunk of work -> git add -A && git commit
 - Commit message: specific description (not "update", not "fix")

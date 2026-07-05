@@ -1,5 +1,5 @@
 ---
-id: RULE-MONOLITH-011
+id: RULE-INTEGRITY-011
 title: Integrity protection (no self-sabotage)
 version: 1.0
 level: [C]
@@ -12,7 +12,7 @@ related:
   - STD-ENV-001
 ---
 
-# RULE-MONOLITH-011: Integrity protection (no self-sabotage)
+# RULE-INTEGRITY-011: Integrity protection (no self-sabotage)
 
 Agents MUST NOT disable, bypass, or weaken the anti-hallucination mechanisms.
 This rule is non-negotiable and applies regardless of task urgency.

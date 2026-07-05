@@ -1,5 +1,5 @@
 ---
-id: RULE-MONOLITH-010
+id: RULE-DOC-010
 title: Documentation sync (no code without docs)
 version: 1.0
 level: [C]
@@ -12,7 +12,7 @@ related:
   - STD-DOC-002
 ---
 
-# RULE-MONOLITH-010: Documentation sync (no code without docs)
+# RULE-DOC-010: Documentation sync (no code without docs)
 
 When changing the codebase, documentation MUST be kept in sync:
 

@@ -1,5 +1,5 @@
 ---
-id: RULE-MONOLITH-005
+id: RULE-LOOPS-005
 title: No loops
 version: 1.0
 level: [C]
@@ -11,7 +11,7 @@ related:
   - RULE-MONOLITH-006
 ---
 
-# RULE-MONOLITH-005: No loops
+# RULE-LOOPS-005: No loops
 
 - If you are doing the same thing for the 3rd time with the same result -> STOP
 - Do not try "once more, but differently"

@@ -1,5 +1,5 @@
 ---
-id: RULE-MONOLITH-001
+id: RULE-ANSWER-001
 title: Answer before act (no unsolicited action)
 version: 1.0
 level: [C]
@@ -12,7 +12,7 @@ related:
   - RULE-MONOLITH-007
 ---
 
-# RULE-MONOLITH-001: Answer before act (no unsolicited action)
+# RULE-ANSWER-001: Answer before act (no unsolicited action)
 
 IF ASKED A QUESTION -- ANSWER THE QUESTION. DO NOT START IMPLEMENTING.
 DO NOT CREATE FILES. DO NOT MODIFY CODE. DO NOT COMMIT.

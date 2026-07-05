@@ -1,5 +1,5 @@
 ---
-id: RULE-MONOLITH-017
+id: RULE-ARCH-017
 title: Upstream write protection (no consumer agent may push to AHG)
 version: 1.0
 level: [C]
@@ -13,7 +13,7 @@ related:
   - STD-ARCH-001
 ---
 
-# RULE-MONOLITH-017: Upstream write protection (no consumer agent may push to AHG)
+# RULE-ARCH-017: Upstream write protection (no consumer agent may push to AHG)
 
 No agent running in a consumer project context may push, merge, create PRs,
 or modify the AHG upstream repository in any way. The AHG repository is

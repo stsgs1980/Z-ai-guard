@@ -1,5 +1,5 @@
 ---
-id: RULE-MONOLITH-014
+id: RULE-COMMIT-014
 title: Pre-commit mandatory checklist
 version: 1.1
 level: [C]
@@ -14,7 +14,7 @@ related:
   - STD-SEC-002
 ---
 
-# RULE-MONOLITH-014: Pre-commit mandatory checklist
+# RULE-COMMIT-014: Pre-commit mandatory checklist
 
 Before EVERY commit, verify ALL of these items:
 - [ ] Code written and tested

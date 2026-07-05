@@ -1,5 +1,5 @@
 ---
-id: RULE-MONOLITH-006
+id: RULE-HONEST-006
 title: Honest reporting
 version: 1.0
 level: [C]
@@ -11,7 +11,7 @@ related:
   - RULE-MONOLITH-011
 ---
 
-# RULE-MONOLITH-006: Honest reporting
+# RULE-HONEST-006: Honest reporting
 
 - Do NOT write "work completed" if tests are not passed
 - Do NOT write "file created" if it does not exist

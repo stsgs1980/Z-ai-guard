@@ -1,5 +1,5 @@
 ---
-id: RULE-MONOLITH-002
+id: RULE-WORKLOG-002
 title: worklog -- BEFORE and AFTER every action
 version: 1.0
 level: [C]
@@ -11,7 +11,7 @@ related:
   - STD-META-001
 ---
 
-# RULE-MONOLITH-002: worklog -- BEFORE and AFTER every action
+# RULE-WORKLOG-002: worklog -- BEFORE and AFTER every action
 
 - Before ANY action: read /worklog.md
 - After ANY action: update /worklog.md
