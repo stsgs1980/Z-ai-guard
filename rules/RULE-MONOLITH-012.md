@@ -8,7 +8,7 @@ source: AHG v2.5.0 (RULE-012), revised 2026-06-19 (canonical promoted to META-00
 owning-standard: STD-META-001 v2.0.4
 last-updated: 2026-06-19
 related:
-  - RULE-MONOLITH-004
+  - RULE-COMMIT-004
   - STD-SKILL-001
   - STD-DOC-002
   - STD-FE-001
@@ -29,20 +29,20 @@ continue with smaller modules.
 
 ## 1. Compact mirror (canonical: STD-META-001 §4.18.1)
 
-| Category | Hard | Soft | Notes |
-|---|---|---|---|
-| Source code (`.ts`/`.tsx`/`.js`/`.py`/`.sh`) | 250 | 150 | |
-| Tests (`.test.*`/`.spec.*`) | 400 | 250 | |
-| Config (`.json`/`.yml`/`.toml`/`.ini`) | exempt | — | Naturally flat |
-| `SKILL.md` | 800 | 400 | |
-| `README.md` | 400 | 250 | |
-| `INDEX.md` | exempt | — | Router |
-| `STD-*.md`/`META-*.md` | 1200 | 800 | |
-| `RULE-*.md` | 200 | 120 | |
-| `PROC-*.md`/`TOOL-*.md` | 400 | 250 | |
-| `references/**.md` | exempt | — | Externalised |
-| Append-only logs (worklog/DECISIONS/SESSION/MIGRATIONS) | exempt | — | Chronological |
-| Other `.md` | 400 | 250 | Default |
+| Category                                                | Hard   | Soft | Notes          |
+| ------------------------------------------------------- | ------ | ---- | -------------- |
+| Source code (`.ts`/`.tsx`/`.js`/`.py`/`.sh`)            | 250    | 150  |                |
+| Tests (`.test.*`/`.spec.*`)                             | 400    | 250  |                |
+| Config (`.json`/`.yml`/`.toml`/`.ini`)                  | exempt | —    | Naturally flat |
+| `SKILL.md`                                              | 800    | 400  |                |
+| `README.md`                                             | 400    | 250  |                |
+| `INDEX.md`                                              | exempt | —    | Router         |
+| `STD-*.md`/`META-*.md`                                  | 1200   | 800  |                |
+| `RULE-*.md`                                             | 200    | 120  |                |
+| `PROC-*.md`/`TOOL-*.md`                                 | 400    | 250  |                |
+| `references/**.md`                                      | exempt | —    | Externalised   |
+| Append-only logs (worklog/DECISIONS/SESSION/MIGRATIONS) | exempt | —    | Chronological  |
+| Other `.md`                                             | 400    | 250  | Default        |
 
 > For the full matrix (rationale column, exempt list of 44 files / 18 579
 > lines, how-to-pick-category rules, parser-bound files explanation),
@@ -88,11 +88,13 @@ loader only needs the trigger surface and core procedure.
 ## 4. Exceptions (must be documented)
 
 **Valid exceptions** (require inline comment in the file explaining why):
+
 - Auto-generated code (Prisma schema, OpenAPI types) -- exempt, not split.
 - Configuration files that are naturally flat -- exempt by category.
 - Files in the explicit exempt list (§4.18.4) -- no comment needed, the rule covers them.
 
 **Invalid exceptions:**
+
 - "I'll refactor later" (later never comes).
 - "It's easier to read in one file" (that's what imports / `references/` are for).
 - "It's a parser-bound file with an ID" -- parser-bound does NOT exempt from the category limit; it only exempts from the blanket 250. If a `STD-*.md` exceeds 1200 lines, it still must split (and the parser concern is handled by the ID migration protocol in STD-META-001 §8).
@@ -118,9 +120,9 @@ loader only needs the trigger surface and core procedure.
 
 ## 7. Change history
 
-| Version | Date | Change |
-|---|---|---|
-| 1.0 | 2026-05 | Initial port from AHG v2.5.0. Blanket 250-line rule. |
-| 1.1 | 2026-06-17 | Verifier header `Related:` cleanup. |
-| 1.2 | 2026-06-19 | Truthfulness fix: blanket 250 -> per-category matrix + full exempt list (44 files, 18 579 lines). Parser-bound files get their own ceiling, not the blanket. PROC-LINECOUNT-004 deferred. |
-| 1.3 | 2026-06-19 | Layering fix: canonical matrix + exempt list promoted to STD-META-001 §4.18 (L1). This rule retains a compact mirror for enforcement context but defers to §4.18 for source of truth. STD-SKILL-001 §8.2/§10.1/§13 updated to reference §4.18 instead of this rule. Net delta: ~70 lines removed from this rule, ~80 lines added to META-001. No graph changes. |
+| Version | Date       | Change                                                                                                                                                                                                                                                                                                                                                          |
+| ------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1.0     | 2026-05    | Initial port from AHG v2.5.0. Blanket 250-line rule.                                                                                                                                                                                                                                                                                                            |
+| 1.1     | 2026-06-17 | Verifier header `Related:` cleanup.                                                                                                                                                                                                                                                                                                                             |
+| 1.2     | 2026-06-19 | Truthfulness fix: blanket 250 -> per-category matrix + full exempt list (44 files, 18 579 lines). Parser-bound files get their own ceiling, not the blanket. PROC-LINECOUNT-004 deferred.                                                                                                                                                                       |
+| 1.3     | 2026-06-19 | Layering fix: canonical matrix + exempt list promoted to STD-META-001 §4.18 (L1). This rule retains a compact mirror for enforcement context but defers to §4.18 for source of truth. STD-SKILL-001 §8.2/§10.1/§13 updated to reference §4.18 instead of this rule. Net delta: ~70 lines removed from this rule, ~80 lines added to META-001. No graph changes. |

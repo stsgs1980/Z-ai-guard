@@ -8,7 +8,7 @@ source: AHG v2.5.0 (RULE-005)
 owning-standard: STD-META-001 v2.0
 last-updated: 2026-06-17
 related:
-  - RULE-MONOLITH-006
+  - RULE-HONEST-006
 ---
 
 # RULE-LOOPS-005: No loops

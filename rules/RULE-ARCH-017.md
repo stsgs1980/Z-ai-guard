@@ -8,8 +8,8 @@ source: AHG v2.5.0 (RULE-017)
 owning-standard: STD-META-001 v2.0
 last-updated: 2026-06-17
 related:
-  - RULE-MONOLITH-011
-  - RULE-MONOLITH-016
+  - RULE-INTEGRITY-011
+  - RULE-ARCH-016
   - STD-ARCH-001
 ---
 
@@ -23,6 +23,7 @@ of the AHG submodule.
 **The problem this rule solves:**
 Consumer project agents (e.g. HH-Copilot, ProjectB-agent) have access to the
 AHG submodule directory inside their project. Without this rule, an agent can:
+
 - Push branches to the AHG upstream repository
 - Create pull requests against AHG main
 - Claim "my fix is already merged via PR #N" and update the submodule pointer
@@ -35,6 +36,7 @@ AHG main, bypassing review. The fix was incorrect (used `git rev-parse
 superseded by a proper fix in PR #9.
 
 **Forbidden actions for consumer project agents (this extends Rule 16):**
+
 1. `git push` from inside the AHG submodule directory
 2. Creating branches in the AHG upstream repository
 3. Creating pull requests against the AHG repository
@@ -45,6 +47,7 @@ superseded by a proper fix in PR #9.
 8. Modifying AHG files and committing them directly (not via submodule update)
 
 **What consumer project agents MUST do instead:**
+
 - If AHG has a bug: report it to the owner, do NOT fix it yourself in the upstream
 - If AHG hooks block a push: fix the consumer project, do NOT patch AHG
 - If AHG seems to need an update: ask the owner, do NOT merge PRs yourself
@@ -52,6 +55,7 @@ superseded by a proper fix in PR #9.
   the owner publishes a release
 
 **Enforcement layers (defense in depth):**
+
 1. **Rule 16 + Rule 17**: Agent-level prohibition in AGENT_RULES.md
 2. **CODEOWNERS**: Only @stsgs1980 can approve changes (requires GitHub
    branch protection with "Require review from Code Owners")
@@ -61,6 +65,7 @@ superseded by a proper fix in PR #9.
 5. **GitHub branch protection**: Must be configured by owner (see below)
 
 **GitHub branch protection (MUST be configured by owner):**
+
 ```
 Repository Settings > Branches > Branch protection rules > main
   [x] Require a pull request before merging

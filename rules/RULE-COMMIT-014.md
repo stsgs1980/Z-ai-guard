@@ -8,8 +8,8 @@ source: AHG v2.5.0 (RULE-014)
 owning-standard: STD-META-001 v2.0
 last-updated: 2026-06-17
 related:
-  - RULE-MONOLITH-002
-  - RULE-MONOLITH-004
+  - RULE-WORKLOG-002
+  - RULE-COMMIT-004
   - TOOL-MONOLITH-VERIFY
   - STD-SEC-002
 ---
@@ -17,6 +17,7 @@ related:
 # RULE-COMMIT-014: Pre-commit mandatory checklist
 
 Before EVERY commit, verify ALL of these items:
+
 - [ ] Code written and tested
 - [ ] worklog.md updated (hook will verify freshness)
 - [ ] If version changed: ahg bump used (not manual edit)

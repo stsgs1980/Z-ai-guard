@@ -8,7 +8,7 @@ source: AHG v2.5.0 (RULE-009)
 owning-standard: STD-META-001 v2.0
 last-updated: 2026-06-17
 related:
-  - RULE-MONOLITH-010
+  - RULE-DOC-010
   - TOOL-MONOLITH-VERIFY
 ---
 
@@ -23,6 +23,7 @@ Before ANY work in a new session, the agent MUST:
 5. **Record scan results** in worklog.md
 
 Detection of drift (automatic flags):
+
 - New files not in ARCHITECTURE.md or docCoverage targets -> flag
 - Stub markers in docs but implementation files exist -> flag
 - Version in docs != version in source of truth -> flag

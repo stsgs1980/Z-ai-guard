@@ -8,7 +8,7 @@ source: AHG v2.5.0 (RULE-003)
 owning-standard: STD-META-001 v2.0
 last-updated: 2026-06-17
 related:
-  - RULE-MONOLITH-010
+  - RULE-DOC-010
 ---
 
 # RULE-READ-003: Read before write

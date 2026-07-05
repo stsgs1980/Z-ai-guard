@@ -8,8 +8,8 @@ source: AHG v2.5.0 (RULE-001)
 owning-standard: STD-META-001 v2.0
 last-updated: 2026-06-17
 related:
-  - RULE-MONOLITH-006
-  - RULE-MONOLITH-007
+  - RULE-HONEST-006
+  - RULE-STRUCT-007
 ---
 
 # RULE-ANSWER-001: Answer before act (no unsolicited action)

@@ -9,15 +9,16 @@ owning-standard: STD-META-001 v2.0
 last-updated: 2026-06-17
 related:
   - TOOL-MONOLITH-BUMP
-  - RULE-MONOLITH-002
+  - RULE-WORKLOG-002
 ---
 
 # RULE-VERSION-013: Use ahg bump for version updates
 
 When changing the project version, use the atomic bump command:
-  bash scripts/ahg.sh bump X.Y.Z
+bash scripts/ahg.sh bump X.Y.Z
 
 This command:
+
 - Auto-discovers ALL files containing version numbers
 - Updates them atomically (no file forgotten)
 - Adds CHANGELOG entry if CHANGELOG exists

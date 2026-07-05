@@ -8,7 +8,7 @@ source: AHG v2.5.0 (RULE-016)
 owning-standard: STD-META-001 v2.0
 last-updated: 2026-06-17
 related:
-  - RULE-MONOLITH-011
+  - RULE-INTEGRITY-011
   - STD-ARCH-001
 ---
 
@@ -19,6 +19,7 @@ project, not an optional dependency. Agents MUST NOT propose or execute any
 action that removes, inlines, or restructures the AHG submodule relationship.
 
 **What the submodule provides (single source of truth):**
+
 - Pre-commit hook: worklog freshness + verify-docs consistency
 - Pre-push hook: repository purity + doc consistency enforcement
 - setup.sh: idempotent deployment of hooks, scripts, and rules
@@ -29,6 +30,7 @@ action that removes, inlines, or restructures the AHG submodule relationship.
 - AGENT_RULES.md: this rule set (deployed, not hand-written)
 
 **Why a submodule (not inline files):**
+
 1. **Version synchronization**: bugfixes in AHG reach ALL consumer projects
    via `git submodule update`. Inlined copies diverge within days.
 2. **Purity validation**: validate.sh can only verify a module repo, not a
@@ -43,6 +45,7 @@ action that removes, inlines, or restructures the AHG submodule relationship.
    of the same hooks. No "HH-Copilot has v2.1 hooks, ProjectB has v1.8 hooks".
 
 **Forbidden actions (this rule extends Rule 11):**
+
 1. Proposing to remove the git submodule and inline AHG files
 2. Moving AHG scripts to `scripts/ahg/`, `.ahg/`, or any local path
 3. Copying hook files into the project and deleting the submodule reference
@@ -51,6 +54,7 @@ action that removes, inlines, or restructures the AHG submodule relationship.
 6. Removing `.gitmodules` entries for anti-hallucination-guard
 
 **What to do when something breaks:**
+
 - If hooks block a push: fix the underlying issue (update worklog, fix docs)
 - If validate.sh fails in wrong context: run `bash anti-hallucination-guard/update.sh`
   to update hooks to the latest version with bugfixes
