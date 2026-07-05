@@ -4,7 +4,7 @@
 # ============================================================================
 #
 # Implements: PROC-SETUP-001 v2.0
-# Related:    STD-META-001 (ID system), RULE-MONOLITH-008 (sandbox verification)
+# Related:    STD-META-001 (ID system), RULE-ENV-008 (sandbox verification)
 # Calls:      build-registry.py (to (re)generate registry.json)
 #
 # Purpose:
@@ -65,7 +65,7 @@ if [ ! -f "$INDEX" ]; then
   exit 1
 fi
 
-RULE_COUNT=$(grep -cE '^\| RULE-MONOLITH-[0-9]+ ' "$INDEX" || true)
+RULE_COUNT=$(grep -cE '^\| RULE-[A-Z]+-[0-9]+ ' "$INDEX" || true)
 if [ "$RULE_COUNT" -lt 17 ]; then
   echo "[setup-001] FAIL: $INDEX has $RULE_COUNT RULE entries, expected >= 17."
   exit 1

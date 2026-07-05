@@ -4,7 +4,7 @@
 # ============================================================================
 #
 # Implements: PROC-UPDATE-002 v2.1
-# Related:    STD-META-001 (ID system), RULE-MONOLITH-009 (session start protocol)
+# Related:    STD-META-001 (ID system), RULE-AGENT-009 (session start protocol)
 # Calls:      build-registry.py, verify-id-graph.js (TOOL-VERIFY-004)
 #
 # Purpose:
@@ -63,7 +63,7 @@ if [ ! -f "$INDEX" ]; then
   exit 1
 fi
 
-RULE_COUNT=$(grep -cE '^\| RULE-MONOLITH-[0-9]+ ' "$INDEX" || true)
+RULE_COUNT=$(grep -cE '^\| RULE-[A-Z]+-[0-9]+ ' "$INDEX" || true)
 echo "[update-002] OK: $INDEX references $RULE_COUNT RULE entries"
 echo ""
 

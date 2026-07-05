@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # PROC-WORKLOG-005 -- Worklog enforcement check
-# Implements: RULE-MONOLITH-002 (maintain worklog)
+# Implements: RULE-WORKLOG-002 (maintain worklog)
 # Calls:      (none -- pure git diff inspection)
 #
 # Usage:
@@ -29,7 +29,7 @@
 #     - Test-only commits (.test.* / .spec.*)       -> PASS
 #     - Lockfile-only commits                       -> PASS
 #
-# Why this matters (RULE-MONOLITH-002):
+# Why this matters (RULE-WORKLOG-002):
 #   "Every coding session MUST add a worklog entry with specific facts."
 #   Co-change-check.sh ensures a .md is touched; this script ensures the
 #   .md touched is worklog.md AND has meaningful content (>=3 lines added).
@@ -102,7 +102,7 @@ fi
 # -- Decision logic --------------------------------------------------------
 echo "=== PROC-WORKLOG-005: worklog enforcement ==="
 echo "Mode: $([ $HARD_MODE -eq 1 ] && echo "HARD (will fail on code-without-worklog)" || echo "SOFT (warning-only)")"
-echo "Implements: RULE-MONOLITH-002 (maintain worklog)"
+echo "Implements: RULE-WORKLOG-002 (maintain worklog)"
 echo "Threshold: >=${MIN_LINES} lines added to worklog.md when code is committed"
 echo ""
 echo "Staged code files: ${CODE_COUNT}"
@@ -112,7 +112,7 @@ echo ""
 
 # No code -> rule does not apply
 if [ "$CODE_COUNT" -eq 0 ]; then
-    emit_pass "no code files staged -- RULE-MONOLITH-002 does not apply"
+    emit_pass "no code files staged -- RULE-WORKLOG-002 does not apply"
     echo ""
     echo "RESULT: PASS"
     exit 0
@@ -139,7 +139,7 @@ fi
 
 # Code without worklog at all -> WARN or FAIL
 if [ "$WORKLOG_STAGED" = false ]; then
-    msg="code change without worklog entry -- RULE-MONOLITH-002 violation."
+    msg="code change without worklog entry -- RULE-WORKLOG-002 violation."
     msg+=" Stage worklog.md with >=${MIN_LINES} lines describing the change."
     if [ $HARD_MODE -eq 1 ]; then
         emit_fail "$msg"
@@ -155,7 +155,7 @@ echo "  Warnings:   $WARN_COUNT"
 echo ""
 
 if [ $VIOLATIONS -gt 0 ] && [ $HARD_MODE -eq 1 ]; then
-    echo "RESULT: FAIL -- code without meaningful worklog entry. (RULE-MONOLITH-002)"
+    echo "RESULT: FAIL -- code without meaningful worklog entry. (RULE-WORKLOG-002)"
     echo ""
     echo "Fix: add >=${MIN_LINES} lines to worklog.md, stage it, re-commit."
     echo "Bypass (emergencies only): git commit --no-verify"

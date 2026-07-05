@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # PROC-COCHANGE-003 — Co-change check (code + docs must sync)
-# Implements: RULE-MONOLITH-010 (documentation sync, no code without docs)
+# Implements: RULE-DOC-010 (documentation sync, no code without docs)
 # Calls:      (none — pure git diff inspection)
 #
 # Usage:
@@ -26,7 +26,7 @@
 #     - Lockfile-only commits (package-lock.json etc.) → PASS
 #     - Auto-generated files (with header comment)   → PASS
 #
-# Why this matters (RULE-MONOLITH-010):
+# Why this matters (RULE-DOC-010):
 #   "When changing the codebase, documentation MUST be kept in sync."
 #   This procedure is the mechanical enforcement of that rule. Without it,
 #   the rule is a declaration only — agents can violate it without consequence.
@@ -95,7 +95,7 @@ done <<< "$STAGED"
 # ─── Decision logic ─────────────────────────────────────────────────────
 echo "=== PROC-COCHANGE-003: co-change check ==="
 echo "Mode: $([ $HARD_MODE -eq 1 ] && echo 'HARD (will fail on code-without-docs)' || echo 'SOFT (warning-only)')"
-echo "Implements: RULE-MONOLITH-010 (documentation sync)"
+echo "Implements: RULE-DOC-010 (documentation sync)"
 echo ""
 echo "Staged files: $(echo "$STAGED" | wc -l)"
 echo "  code:    ${#CODE_FILES[@]}"
@@ -107,7 +107,7 @@ echo ""
 
 # Pure-docs commit — PASS
 if [ ${#CODE_FILES[@]} -eq 0 ]; then
-    emit_pass "no code files staged — RULE-MONOLITH-010 does not apply"
+    emit_pass "no code files staged — RULE-DOC-010 does not apply"
     echo ""
     echo "RESULT: PASS"
     exit 0
@@ -126,7 +126,7 @@ fi
 
 # Code without docs — VIOLATION
 if [ ${#CODE_FILES[@]} -gt 0 ] && [ ${#DOC_FILES[@]} -eq 0 ]; then
-    msg="code change without doc change — RULE-MONOLITH-010 violation"
+    msg="code change without doc change — RULE-DOC-010 violation"
     msg+="  code files (${#CODE_FILES[@]}):"
     for f in "${CODE_FILES[@]}"; do
         msg+="\n    $f"
@@ -146,7 +146,7 @@ echo "  Warnings:   $WARN_COUNT"
 echo ""
 
 if [ $VIOLATIONS -gt 0 ] && [ $HARD_MODE -eq 1 ]; then
-    echo "RESULT: FAIL — code change without doc update. Stage a .md or revert. (RULE-MONOLITH-010)"
+    echo "RESULT: FAIL — code change without doc update. Stage a .md or revert. (RULE-DOC-010)"
     exit 1
 elif [ $VIOLATIONS -gt 0 ]; then
     echo "RESULT: WARN — code change without doc update. Re-run with --hard to enforce."
