@@ -4,7 +4,7 @@ title: Pre-commit mandatory checklist
 version: 1.1
 level: [C]
 status: ACTIVE
-source: AHG v2.5.0 (RULE-014)
+source: Z-ai-guard v3.0.0 (RULE-COMMIT-014)
 owning-standard: STD-META-001 v2.0
 last-updated: 2026-06-17
 related:

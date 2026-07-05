@@ -4,7 +4,7 @@ title: Work structure
 version: 1.0
 level: [W]
 status: ACTIVE
-source: AHG v2.5.0 (RULE-007)
+source: Z-ai-guard v3.0.0 (RULE-STRUCT-007)
 owning-standard: STD-META-001 v2.0
 last-updated: 2026-06-17
 related:

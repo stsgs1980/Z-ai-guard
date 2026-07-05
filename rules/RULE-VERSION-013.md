@@ -4,7 +4,7 @@ title: Use ahg bump for version updates
 version: 1.1
 level: [C]
 status: ACTIVE
-source: AHG v2.5.0 (RULE-013)
+source: Z-ai-guard v3.0.0 (RULE-VERSION-013)
 owning-standard: STD-META-001 v2.0
 last-updated: 2026-06-17
 related:

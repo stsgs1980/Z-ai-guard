@@ -4,7 +4,7 @@ title: Anti-monolith (file size by category)
 version: 1.3
 level: [C]
 status: ACTIVE
-source: AHG v2.5.0 (RULE-012), revised 2026-06-19 (canonical promoted to META-001)
+source: Z-ai-guard v3.0.0 (RULE-MONOLITH-012), revised 2026-06-19 (canonical promoted to META-001)
 owning-standard: STD-META-001 v2.0.4
 last-updated: 2026-06-19
 related:

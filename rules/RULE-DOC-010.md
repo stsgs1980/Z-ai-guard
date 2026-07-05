@@ -4,7 +4,7 @@ title: Documentation sync (no code without docs)
 version: 1.0
 level: [C]
 status: ACTIVE
-source: AHG v2.5.0 (RULE-010)
+source: Z-ai-guard v3.0.0 (RULE-DOC-010)
 owning-standard: STD-META-001 v2.0
 last-updated: 2026-06-17
 related:
@@ -23,6 +23,7 @@ When changing the codebase, documentation MUST be kept in sync:
    all other docs must read from there (verified by verify-docs Section 3)
 
 Pre-commit checklist:
+
 - [ ] manifest.json version updated?
 - [ ] ARCHITECTURE.md reflects new/changed modules?
 - [ ] README.md does not contain stale "stubs"?
