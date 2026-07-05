@@ -16,7 +16,7 @@ last-updated: 2026-06-22
 > Version: 2.0
 > Level: **[C] Critical**
 > Last Updated: 2026-06-22
-> Related: STD-META-001 (ID system), RULE-MONOLITH-008 (sandbox verification — setup must verify)
+> Related: STD-META-001 (ID system), RULE-ENV-008 (sandbox verification — setup must verify)
 
 > **Status:** ACTIVE. Implemented by `guard/scripts/setup-001.sh`.
 > Three platform-side procedures (PROC-PLATFORM-005/006/007) were retired
@@ -31,6 +31,7 @@ Z-ai-guard workspace. NOT called by `bootstrap.sh` (which is the
 platform-side installer and supersedes the retired PROC-PLATFORM-005).
 
 Typical trigger:
+
 ```bash
 bash guard/scripts/setup-001.sh
 ```
@@ -61,11 +62,11 @@ post-install verification.)
 
 ## Relationship to other procedures
 
-| Procedure | Relationship |
-|---|---|
-| PROC-UPDATE-002 | Runs after this one to bring an existing workspace up to date |
-| PROC-COCHANGE-003 | Pre-commit check, not part of setup |
-| PROC-LINECOUNT-004 | Pre-commit check, not part of setup |
+| Procedure          | Relationship                                                  |
+| ------------------ | ------------------------------------------------------------- |
+| PROC-UPDATE-002    | Runs after this one to bring an existing workspace up to date |
+| PROC-COCHANGE-003  | Pre-commit check, not part of setup                           |
+| PROC-LINECOUNT-004 | Pre-commit check, not part of setup                           |
 
 ## Open questions (resolve when implementing)
 
@@ -77,7 +78,7 @@ post-install verification.)
 
 ## Change history
 
-| Version | Date | Change |
-|---|---|---|
-| 2.0 | 2026-06-19 | Re-scoped after PROC-PLATFORM-005/006/007 retirement. Guard-only scope. |
-| 1.0 | 2026-05 | Initial registration in META-001 §4.14. |
+| Version | Date       | Change                                                                  |
+| ------- | ---------- | ----------------------------------------------------------------------- |
+| 2.0     | 2026-06-19 | Re-scoped after PROC-PLATFORM-005/006/007 retirement. Guard-only scope. |
+| 1.0     | 2026-05    | Initial registration in META-001 §4.14.                                 |

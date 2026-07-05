@@ -16,7 +16,7 @@ last-updated: 2026-06-22
 > Version: 2.1
 > Level: **[C] Critical**
 > Last Updated: 2026-06-22
-> Related: STD-META-001 (ID system), RULE-MONOLITH-009 (session start protocol — update runs at session start), PROC-SETUP-001 (setup runs before update)
+> Related: STD-META-001 (ID system), RULE-AGENT-009 (session start protocol — update runs at session start), PROC-SETUP-001 (setup runs before update)
 
 > **Status:** ACTIVE. Implemented by `guard/scripts/update-002.sh`.
 > Three platform-side procedures (PROC-PLATFORM-005/006/007) were retired
@@ -29,6 +29,7 @@ Triggered manually by an agent or operator when bringing an existing
 Z-ai-guard workspace up to date after a `git pull` of the guard submodule.
 
 Typical trigger:
+
 ```bash
 bash guard/scripts/update-002.sh
 ```
@@ -60,11 +61,11 @@ bash guard/scripts/update-002.sh
 
 ## Relationship to other procedures
 
-| Procedure | Relationship |
-|---|---|
-| PROC-SETUP-001 | Runs first on a fresh workspace; this one runs after pulls |
-| PROC-COCHANGE-003 | Pre-commit check, not part of update |
-| PROC-LINECOUNT-004 | Pre-commit check, not part of update |
+| Procedure          | Relationship                                               |
+| ------------------ | ---------------------------------------------------------- |
+| PROC-SETUP-001     | Runs first on a fresh workspace; this one runs after pulls |
+| PROC-COCHANGE-003  | Pre-commit check, not part of update                       |
+| PROC-LINECOUNT-004 | Pre-commit check, not part of update                       |
 
 ## Open questions (resolve when implementing)
 
@@ -75,8 +76,8 @@ bash guard/scripts/update-002.sh
 
 ## Change history
 
-| Version | Date | Change |
-|---|---|---|
-| 2.1 | 2026-06-19 | Re-scoped after PROC-PLATFORM-005/006/007 retirement. |
-| 2.0 | 2026-06-18 | Initial scope alignment with META-001 v2.0.4. |
-| 1.0 | 2026-05 | Initial registration in META-001 §4.14. |
+| Version | Date       | Change                                                |
+| ------- | ---------- | ----------------------------------------------------- |
+| 2.1     | 2026-06-19 | Re-scoped after PROC-PLATFORM-005/006/007 retirement. |
+| 2.0     | 2026-06-18 | Initial scope alignment with META-001 v2.0.4.         |
+| 1.0     | 2026-05    | Initial registration in META-001 §4.14.               |

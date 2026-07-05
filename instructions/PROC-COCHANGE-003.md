@@ -4,7 +4,7 @@ title: Co-change check (code + docs sync)
 version: 1.0
 level: [C]
 status: ACTIVE
-implements: RULE-MONOLITH-010
+implements: RULE-DOC-010
 calls: []
 owning-standard: STD-META-001 v2.0.4
 last-updated: 2026-06-22
@@ -16,10 +16,10 @@ last-updated: 2026-06-22
 > Version: 1.0
 > Level: **[C] Critical**
 > Last Updated: 2026-06-22
-> Related: RULE-MONOLITH-010 (docs sync — this procedure implements it), STD-META-001 (ID system), STD-DOC-002 (markdown standard)
+> Related: RULE-DOC-010 (docs sync — this procedure implements it), STD-META-001 (ID system), STD-DOC-002 (markdown standard)
 
 > **Status:** ACTIVE. File `guard/scripts/co-change-check.sh` exists.
-> Implements RULE-MONOLITH-010 (documentation sync, no code without docs).
+> Implements RULE-DOC-010 (documentation sync, no code without docs).
 
 ## When this procedure fires
 
@@ -28,6 +28,7 @@ and verifies that every code change is accompanied by at least one doc
 change in the same commit.
 
 Typical trigger:
+
 ```bash
 bash guard/scripts/co-change-check.sh           # soft warn (exit 0)
 bash guard/scripts/co-change-check.sh --hard    # hard fail (exit 1)
@@ -48,18 +49,18 @@ Platform's `install-hooks.sh` can do this; see §"Integration" below.
 3. Decision:
    - No code staged -> PASS (pure-docs/config/lockfile commit)
    - Code + at least one .md -> PASS
-   - Code without .md -> VIOLATION (RULE-MONOLITH-010)
+   - Code without .md -> VIOLATION (RULE-DOC-010)
 4. Print summary, exit 0 (PASS/SOFT-WARN) or 1 (FAIL in --hard mode)
 
 ## Exemptions
 
-| File type | Exempt? | Reason |
-|---|---|---|
-| Lockfiles (package-lock, etc.) | YES | Auto-generated, no doc meaning |
-| Test files (.test.*, .spec.*) | YES | Tests are themselves a form of docs |
-| Config files (.json, .yml, .toml) | YES | Naturally flat, no narrative to sync |
-| Pure-docs commits | YES | No code -> rule does not apply |
-| Auto-generated code | YES | If header comment marks it as generated |
+| File type                         | Exempt? | Reason                                  |
+| --------------------------------- | ------- | --------------------------------------- |
+| Lockfiles (package-lock, etc.)    | YES     | Auto-generated, no doc meaning          |
+| Test files (.test._, .spec._)     | YES     | Tests are themselves a form of docs     |
+| Config files (.json, .yml, .toml) | YES     | Naturally flat, no narrative to sync    |
+| Pure-docs commits                 | YES     | No code -> rule does not apply          |
+| Auto-generated code               | YES     | If header comment marks it as generated |
 
 ## Inputs
 
@@ -93,9 +94,9 @@ changes without corresponding .md changes.
 
 ## Relationship to other procedures
 
-| Procedure | Relationship |
-|---|---|
-| PROC-SETUP-001 | Sets up the guard workspace this procedure runs in |
+| Procedure          | Relationship                                          |
+| ------------------ | ----------------------------------------------------- |
+| PROC-SETUP-001     | Sets up the guard workspace this procedure runs in    |
 | PROC-LINECOUNT-004 | Companion pre-commit check (file size, not docs sync) |
 
 ## Limitations (known)
@@ -113,6 +114,6 @@ changes without corresponding .md changes.
 
 ## Change history
 
-| Version | Date | Change |
-|---|---|---|
-| 1.0 | 2026-06-22 | Initial implementation. `guard/scripts/co-change-check.sh` created. |
+| Version | Date       | Change                                                              |
+| ------- | ---------- | ------------------------------------------------------------------- |
+| 1.0     | 2026-06-22 | Initial implementation. `guard/scripts/co-change-check.sh` created. |
