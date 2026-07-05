@@ -4,8 +4,8 @@
 # ============================================================================
 #
 # Implements: TOOL-VERIFY-001 (registry placeholder -> active)
-# Related:    STD-META-001 §4.15, RULE-MONOLITH-010 (documentation sync),
-#             RULE-MONOLITH-011 (integrity protection)
+# Related:    STD-META-001 §4.15, RULE-DOC-010 (documentation sync),
+#             RULE-INTEGRITY-011 (integrity protection)
 # Calls:      verify-standards.js (TOOL-VERIFY-002), verify-id-graph.js (TOOL-VERIFY-004)
 #
 # Purpose:
@@ -62,7 +62,7 @@ if [ ! -f registry.json ]; then
 else
   if python3 -c "import json; json.load(open('registry.json'))" 2>/dev/null; then
     REG_RULES=$(python3 -c "import json; d=json.load(open('registry.json')); print(sum(1 for i in d['ids'] if i['id'].startswith('RULE-')))")
-    IDX_RULES=$(grep -cE '^\| RULE-MONOLITH-[0-9]+ ' rules/INDEX.md || true)
+    IDX_RULES=$(grep -cE '^\| RULE-[A-Z]+-[0-9]+ ' rules/INDEX.md || true)
     if [ "$REG_RULES" = "$IDX_RULES" ]; then
       PASS "registry.json census matches INDEX.md ($REG_RULES RULE entries)"
     else
@@ -122,7 +122,7 @@ fi
 # --- Check D: AGENT_RULES.md §2 priority list non-empty ---------------------
 AGENT_RULES="$PLATFORM_DIR/AGENT_RULES.md"
 if [ -f "$AGENT_RULES" ]; then
-  if grep -qE 'STD-\*' "$AGENT_RULES" && grep -qE 'RULE-MONOLITH' "$AGENT_RULES" && grep -qiE 'priority' "$AGENT_RULES"; then
+  if grep -qE 'STD-\*' "$AGENT_RULES" && grep -qE 'RULE-' "$AGENT_RULES" && grep -qiE 'priority' "$AGENT_RULES"; then
     PASS "AGENT_RULES.md §2 priority chain present"
   else
     FAIL "AGENT_RULES.md §2 priority chain missing"

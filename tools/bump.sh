@@ -4,12 +4,12 @@
 # ============================================================================
 #
 # Implements: TOOL-BUMP-005 (registry placeholder -> active)
-# Related:    STD-META-001 §4.15, RULE-MONOLITH-013 (use ahg bump for version
-#             updates), RULE-MONOLITH-016 (submodule immutability)
+# Related:    STD-META-001 §4.15, RULE-VERSION-013 (use ahg bump for version
+#             updates), RULE-ARCH-016 (submodule immutability)
 #
 # Purpose:
 #   Single entry point for bumping versions across the Z-ai-platform. Wraps
-#   the `ahg bump` flow defined by RULE-MONOLITH-013, but is callable even
+#   the `ahg bump` flow defined by RULE-VERSION-013, but is callable even
 #   when the `ahg` CLI is not installed (falls back to manual edits + git tag).
 #
 # What gets bumped:
