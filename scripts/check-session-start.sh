@@ -47,6 +47,9 @@ if [ ! -f "worklog.md" ]; then
     exit 1
 fi
 
+# Pre-load recent worklog for later checks
+RECENT_WORKLOG=$(tail -100 worklog.md 2>/dev/null || true)
+
 # 2. Check if worklog was modified recently (within last 4 hours)
 # This is a heuristic — if worklog was modified, the agent is working
 WORKLOG_MTIME=$(stat -c %Y worklog.md 2>/dev/null || stat -f %m worklog.md 2>/dev/null || echo "0")
@@ -58,7 +61,6 @@ if [ "$AGE_HOURS" -le 4 ]; then
     emit_pass "worklog modified recently ($AGE_HOURS hours ago) — agent is active"
 else
     # Worklog not modified recently — check for scan evidence
-    RECENT_WORKLOG=$(tail -100 worklog.md 2>/dev/null || true)
     if echo "$RECENT_WORKLOG" | grep -qiE "(scan|structure|session|start|read|прочитал|начало)"; then
         emit_pass "scan-related content found in recent worklog entries"
     else

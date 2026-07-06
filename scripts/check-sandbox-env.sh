@@ -66,12 +66,16 @@ else
     echo "  [INFO] dev server not responding (not running or different port)"
 fi
 
-# 4. Verify git config core.fileMode is false (sandbox standard)
-FILE_MODE=$(git -C "$PLATFORM_DIR" config core.fileMode 2>/dev/null || echo "true")
-if [ "$FILE_MODE" = "false" ]; then
-    emit_pass "core.fileMode=false (sandbox standard)"
+# 4. Verify git config core.fileMode is false (sandbox standard, skip on CI)
+if [ -z "${CI:-}" ]; then
+    FILE_MODE=$(git -C "$PLATFORM_DIR" config core.fileMode 2>/dev/null || echo "true")
+    if [ "$FILE_MODE" = "false" ]; then
+        emit_pass "core.fileMode=false (sandbox standard)"
+    else
+        emit_fail "core.fileMode is not false (RULE-ENV-008: run 'git config core.fileMode false')"
+    fi
 else
-    emit_fail "core.fileMode is not false (RULE-ENV-008: run 'git config core.fileMode false')"
+    echo "  [INFO] running in CI — core.fileMode check skipped"
 fi
 
 echo ""
