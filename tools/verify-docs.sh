@@ -3,7 +3,6 @@
 # TOOL-VERIFY-001: verify-docs (guard-side docs invariants)
 # ============================================================================
 #
-# Implements: TOOL-VERIFY-001 (registry placeholder -> active)
 # Related:    STD-META-001 §4.15, RULE-DOC-010 (documentation sync),
 #             RULE-INTEGRITY-011 (integrity protection)
 # Calls:      verify-standards.js (TOOL-VERIFY-002), verify-id-graph.js (TOOL-VERIFY-004)

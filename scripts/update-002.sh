@@ -3,7 +3,6 @@
 # PROC-UPDATE-002: Z-ai-guard workspace updater
 # ============================================================================
 #
-# Implements: PROC-UPDATE-002 v2.1
 # Related:    STD-META-001 (ID system), RULE-AGENT-009 (session start protocol)
 # Calls:      build-registry.py, verify-id-graph.js (TOOL-VERIFY-004)
 #

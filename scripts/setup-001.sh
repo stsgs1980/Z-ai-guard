@@ -3,7 +3,6 @@
 # PROC-SETUP-001: Z-ai-guard workspace installer
 # ============================================================================
 #
-# Implements: PROC-SETUP-001 v2.0
 # Related:    STD-META-001 (ID system), RULE-ENV-008 (sandbox verification)
 # Calls:      build-registry.py (to (re)generate registry.json)
 #

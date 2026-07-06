@@ -3,7 +3,6 @@
 # TOOL-BUMP-005: version bumper (semver-aware, registry-aware)
 # ============================================================================
 #
-# Implements: TOOL-BUMP-005 (registry placeholder -> active)
 # Related:    STD-META-001 §4.15, RULE-VERSION-013 (use ahg bump for version
 #             updates), RULE-ARCH-016 (submodule immutability)
 #

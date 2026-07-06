@@ -246,7 +246,7 @@
       "status": "ACTIVE",
       "file": "guard/scripts/co-change-check.sh",
       "source": "STD-META-001 §4.14",
-      "implements": "RULE-MONOLITH-010",
+      "implements": "RULE-DOC-010",
       "calls": [],
       "owning_standard": "STD-META-001 v2.0.4"
     },
@@ -288,12 +288,14 @@
     },
     {
       "id": "TOOL-VERIFY-003",
-      "title": "[RETIRED] verify-cascade.js",
+      "title": "[RETIRED] verify-cascade.js (replaced by verify-id-graph.js)",
       "version": "2.2.0",
       "level": "critical",
       "status": "RETIRED",
-      "file": "standards/scripts/verify-cascade.js",
+      "file": "(removed -- replaced by standards/scripts/verify-id-graph.js)",
       "source": "STD-META-001 §4.15",
+      "retired_at": "2026-06-22",
+      "replaced_by": "TOOL-VERIFY-004 (verify-id-graph.js)",
       "implements": null,
       "calls": [],
       "owning_standard": "STD-META-001 v2.0.4"
@@ -324,12 +326,14 @@
     },
     {
       "id": "TOOL-CHECKUPDATES-006",
-      "title": "check-updates.sh",
+      "title": "[RETIRED] check-updates.sh (file removed, no replacement)",
       "version": "2.2.0",
       "level": "warning",
-      "status": "ACTIVE",
-      "file": "(removed -- file does not exist)",
+      "status": "RETIRED",
+      "file": "(removed)",
       "source": "STD-META-001 §4.15",
+      "retired_at": "2026-07-06",
+      "retired_reason": "File removed; functionality replaced by native `git submodule update --remote` + standards-version-bump in CI",
       "implements": null,
       "calls": [],
       "owning_standard": "STD-META-001 v2.0.4"
