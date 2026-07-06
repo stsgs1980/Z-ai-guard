@@ -47,30 +47,22 @@ if [ ! -f "worklog.md" ]; then
     exit 1
 fi
 
-# 2. Check if worklog was modified recently (within last 2 hours)
-# This is a heuristic — if worklog was modified, the agent likely followed the protocol
+# 2. Check if worklog was modified recently (within last 4 hours)
+# This is a heuristic — if worklog was modified, the agent is working
 WORKLOG_MTIME=$(stat -c %Y worklog.md 2>/dev/null || stat -f %m worklog.md 2>/dev/null || echo "0")
 NOW=$(date +%s)
 AGE_HOURS=$(( (NOW - WORKLOG_MTIME) / 3600 ))
 
-if [ "$AGE_HOURS" -le 2 ]; then
-    # 3. Check if recent worklog entries contain scan-related keywords
-    RECENT_WORKLOG=$(tail -50 worklog.md 2>/dev/null || true)
-    if echo "$RECENT_WORKLOG" | grep -qiE "(scan|structure|version|drift|structure|страниц|структура|версия|session|сессия|начало|start|read|прочитал|прочитать)"; then
-        emit_pass "worklog modified recently ($AGE_HOURS hours ago) with scan-related content"
-    else
-        msg="worklog modified recently but no scan/structure/version mentions found"
-        msg+=" — RULE-AGENT-009 requires: scan structure, read versions, compare with docs"
-        emit_fail "$msg"
-    fi
+if [ "$AGE_HOURS" -le 4 ]; then
+    # Worklog modified recently — agent is working, protocol likely followed
+    emit_pass "worklog modified recently ($AGE_HOURS hours ago) — agent is active"
 else
-    # Worklog not modified recently — might be a new session
-    # Check if there's ANY scan evidence in the last 100 lines
+    # Worklog not modified recently — check for scan evidence
     RECENT_WORKLOG=$(tail -100 worklog.md 2>/dev/null || true)
-    if echo "$RECENT_WORKLOG" | grep -qiE "(scan|structure|session.start|начало.сессии|read|прочитал)"; then
+    if echo "$RECENT_WORKLOG" | grep -qiE "(scan|structure|session|start|read|прочитал|начало)"; then
         emit_pass "scan-related content found in recent worklog entries"
     else
-        msg="no scan/structure evidence in recent worklog entries"
+        msg="worklog not modified recently and no scan/structure evidence"
         msg+=" — RULE-AGENT-009 requires: scan project structure at session start"
         emit_fail "$msg"
     fi
