@@ -71,7 +71,10 @@ fi
 # Historical drift from before this rule was added will be ignored once
 # 5+ new commits land. For initial bootstrap, use --no-verify.
 LOOKBACK=5
-COMMITS=$(git log --oneline -n "$LOOKBACK" 2>/dev/null || echo "")
+
+# Get commits with author info (so we can skip bot commits)
+# Format: <sha> | <author>
+COMMITS=$(git log --format="%H | %ae" -n "$LOOKBACK" 2>/dev/null || echo "")
 
 if [ -z "$COMMITS" ]; then
   emit_info "no commits to check (empty repo)"
@@ -83,11 +86,16 @@ fi
 
 COMMIT_COUNT=$(echo "$COMMITS" | wc -l | tr -d ' ')
 
+# Bot author patterns to skip (auto-generated commits, not human work)
+# These don't need worklog entries - they're CI artifacts.
+BOT_PATTERNS="github-actions\[bot\]|noreply\.github\.com$|.*\[bot\]@.*"
+
 # Count commits where worklog.md is NOT in the commit's files
 # We check both: (a) worklog in this commit, (b) worklog in previous commit
 UNLOGGED_RUN=0
 MAX_UNLOGGED=0
 TOTAL_UNLOGGED=0
+SKIPPED_BOT=0
 
 # Walk commits from oldest to newest (reverse the list)
 REVERSED=$(echo "$COMMITS" | tac)
@@ -95,7 +103,18 @@ PREV_TOUCHED_WORKLOG=0
 
 while IFS= read -r line; do
   [ -z "$line" ] && continue
-  SHA=$(echo "$line" | awk '{print $1}')
+  SHA=$(echo "$line" | awk -F' \\| ' '{print $1}')
+  AUTHOR=$(echo "$line" | awk -F' \\| ' '{print $2}')
+
+  # Skip bot commits (CI auto-exports, automated commits)
+  if echo "$AUTHOR" | grep -qE "$BOT_PATTERNS"; then
+    SKIPPED_BOT=$((SKIPPED_BOT + 1))
+    # Bot commits don't reset the unlogged run (they don't have worklog anyway,
+    # but they're not "human drift" — they reset the run counter as if they
+    # were a "touched" commit because they represent expected automation).
+    PREV_TOUCHED_WORKLOG=1
+    continue
+  fi
 
   # Check if worklog.md is in this commit
   if git show --name-only --format= "$SHA" 2>/dev/null | grep -q "^worklog.md$"; then
@@ -130,6 +149,7 @@ fi
 echo ""
 echo "=== Summary ==="
 echo "  Commits checked: $COMMIT_COUNT"
+echo "  Bot commits skipped: $SKIPPED_BOT"
 echo "  Unlogged commits: $TOTAL_UNLOGGED"
 echo "  Max consecutive unlogged: $MAX_UNLOGGED"
 echo "  Violations: $VIOLATIONS"
