@@ -81,7 +81,8 @@ fi
 
 # Check for repeated file modifications across entries
 # Extract file paths from worklog (lines with file extensions)
-FILE_COUNTS=$(echo "$RECENT_ENTRIES" | grep -oE '[a-zA-Z0-9_/.-]+\.(js|ts|tsx|jsx|py|sh|go|rs|md|json|yml|yaml)' | sort | uniq -c | sort -rn)
+# Only count files that appear in ERROR/FAIL context (not just mentions)
+FILE_COUNTS=$(echo "$RECENT_ENTRIES" | grep -iE "(fail|error|ошибка|не работает|broken|loop)" | grep -oE '[a-zA-Z0-9_/.-]+\.(js|ts|tsx|jsx|py|sh|go|rs|md|json|yml|yaml)' | sort | uniq -c | sort -rn)
 
 LOOP_FILES=""
 if [ -n "$FILE_COUNTS" ]; then
