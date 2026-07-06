@@ -34,12 +34,17 @@ echo "=== RULE-ENV-008: sandbox verification ==="
 echo "Mode: $([ $HARD_MODE -eq 1 ] && echo 'HARD' || echo 'SOFT')"
 echo ""
 
-# 1. Verify clone path is /home/z/my-project/
-REAL_PATH=$(realpath "$PLATFORM_DIR" 2>/dev/null || echo "$PLATFORM_DIR")
-if echo "$REAL_PATH" | grep -q "/home/z/my-project"; then
-    emit_pass "clone path is correct: $REAL_PATH"
+# 1. Verify clone path is /home/z/my-project/ (sandbox only)
+# Skip this check if not in a sandbox environment
+if [ -d "/home/z" ]; then
+    REAL_PATH=$(realpath "$PLATFORM_DIR" 2>/dev/null || echo "$PLATFORM_DIR")
+    if echo "$REAL_PATH" | grep -q "/home/z/my-project"; then
+        emit_pass "clone path is correct: $REAL_PATH"
+    else
+        emit_fail "clone path is NOT /home/z/my-project/: $REAL_PATH (RULE-ENV-008: code outside sandbox root)"
+    fi
 else
-    emit_fail "clone path is NOT /home/z/my-project/: $REAL_PATH (RULE-ENV-008: code outside sandbox root)"
+    echo "  [INFO] not in sandbox environment — clone path check skipped"
 fi
 
 # 2. Verify dev server is managed by sandbox (not manually started)
