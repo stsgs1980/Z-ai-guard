@@ -79,20 +79,60 @@ else
     echo "Analyzing all $TOTAL_ENTRIES entries"
 fi
 
-# Check for repeated file modifications across entries
-# Extract file paths from worklog (lines with file extensions)
-# Only count files that appear in ERROR/FAIL context (not just mentions)
-FILE_COUNTS=$(echo "$RECENT_ENTRIES" | grep -iE "(fail|error|ошибка|не работает|broken|loop)" | grep -oE '[a-zA-Z0-9_/.-]+\.(js|ts|tsx|jsx|py|sh|go|rs|md|json|yml|yaml)' | sort | uniq -c | sort -rn)
+# Check for repeated file modifications across entries.
+#
+# Per-entry counting: a loop = same file appears in ERROR/FAIL context
+# across 3+ SEPARATE worklog entries. A single verbose entry that
+# mentions a file many times is ONE work session, not a loop.
+#
+# Algorithm:
+#   1. Write RECENT_ENTRIES to a temp file
+#   2. Pass temp file to awk
+#   3. For each file, count in how many separate entries it appears
+#   4. Flag if count >= 3
+TMP_RECENT=$(mktemp 2>/dev/null || echo "/tmp/zai-no-loops-$$.tmp")
+echo "$RECENT_ENTRIES" > "$TMP_RECENT"
+
+FILE_LOOP_DETECTION=$(awk '
+  BEGIN { entry = 0 }
+  /^---$/ { entry++ }
+  /[a-zA-Z0-9_/.-]+\.(js|ts|tsx|jsx|py|sh|go|rs|md|json|yml|yaml)/ {
+    if (tolower($0) ~ /fail|error|broken|ошибка|не работает/) {
+      n = split($0, parts, /[ \t,]+/)
+      for (i = 1; i <= n; i++) {
+        if (parts[i] ~ /[a-zA-Z0-9_/.-]+\.(js|ts|tsx|jsx|py|sh|go|rs|md|json|yml|yaml)$/) {
+          files[parts[i]] = files[parts[i]] " " entry
+        }
+      }
+    }
+  }
+  END {
+    for (f in files) {
+      n = split(files[f], entries, " ")
+      seen_count = 0
+      delete seen
+      for (i = 1; i <= n; i++) {
+        if (entries[i] != "" && !seen[entries[i]]) {
+          seen[entries[i]] = 1
+          seen_count++
+        }
+      }
+      if (seen_count >= 3) {
+        print seen_count " " f
+      }
+    }
+  }
+' "$TMP_RECENT" | sort -rn)
+
+rm -f "$TMP_RECENT"
 
 LOOP_FILES=""
-if [ -n "$FILE_COUNTS" ]; then
+if [ -n "$FILE_LOOP_DETECTION" ]; then
     while IFS= read -r line; do
-        COUNT=$(echo "$line" | awk '{print $1}')
+        ENTRY_COUNT=$(echo "$line" | awk '{print $1}')
         FILE=$(echo "$line" | awk '{print $2}')
-        if [ "$COUNT" -ge 3 ]; then
-            LOOP_FILES="$LOOP_FILES\n  $FILE ($COUNT mentions)"
-        fi
-    done <<< "$FILE_COUNTS"
+        LOOP_FILES="$LOOP_FILES\n  $FILE (in $ENTRY_COUNT separate entries)"
+    done <<< "$FILE_LOOP_DETECTION"
 fi
 
 # Check for repeated error patterns
