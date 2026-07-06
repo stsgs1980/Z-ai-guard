@@ -56,7 +56,7 @@ AGE_HOURS=$(( (NOW - WORKLOG_MTIME) / 3600 ))
 if [ "$AGE_HOURS" -le 2 ]; then
     # 3. Check if recent worklog entries contain scan-related keywords
     RECENT_WORKLOG=$(tail -50 worklog.md 2>/dev/null || true)
-    if echo "$RECENT_WORKLOG" | grep -qiE "(scan|structure|version|drift|structure|страниц|структура|версия)"; then
+    if echo "$RECENT_WORKLOG" | grep -qiE "(scan|structure|version|drift|structure|страниц|структура|версия|session|сессия|начало|start|read|прочитал|прочитать)"; then
         emit_pass "worklog modified recently ($AGE_HOURS hours ago) with scan-related content"
     else
         msg="worklog modified recently but no scan/structure/version mentions found"
@@ -67,7 +67,7 @@ else
     # Worklog not modified recently — might be a new session
     # Check if there's ANY scan evidence in the last 100 lines
     RECENT_WORKLOG=$(tail -100 worklog.md 2>/dev/null || true)
-    if echo "$RECENT_WORKLOG" | grep -qiE "(scan|structure|session.start|начало.сессии)"; then
+    if echo "$RECENT_WORKLOG" | grep -qiE "(scan|structure|session.start|начало.сессии|read|прочитал)"; then
         emit_pass "scan-related content found in recent worklog entries"
     else
         msg="no scan/structure evidence in recent worklog entries"
