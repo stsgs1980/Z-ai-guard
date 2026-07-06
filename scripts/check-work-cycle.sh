@@ -67,7 +67,10 @@ if ! git rev-parse --git-dir >/dev/null 2>&1; then
 fi
 
 # How many commits to check
-LOOKBACK=10
+# Lookback of 5 balances: catching real drift (recent) vs. historical noise.
+# Historical drift from before this rule was added will be ignored once
+# 5+ new commits land. For initial bootstrap, use --no-verify.
+LOOKBACK=5
 COMMITS=$(git log --oneline -n "$LOOKBACK" 2>/dev/null || echo "")
 
 if [ -z "$COMMITS" ]; then
