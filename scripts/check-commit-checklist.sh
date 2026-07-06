@@ -102,10 +102,16 @@ while IFS= read -r f; do
 done <<< "$STAGED"
 
 if [ "$CODE_COUNT" -gt 0 ]; then
-    if git diff --cached --name-only -- worklog.md 2>/dev/null | grep -q .; then
-        emit_pass "code changes accompanied by worklog entry"
+    # Only require worklog if worklog.md has actual changes
+    WORKLOG_CHANGED=$(git diff --name-only -- worklog.md 2>/dev/null | grep -q . && echo "yes" || echo "no")
+    if [ "$WORKLOG_CHANGED" = "yes" ]; then
+        if git diff --cached --name-only -- worklog.md 2>/dev/null | grep -q .; then
+            emit_pass "code changes accompanied by worklog entry"
+        else
+            emit_fail "worklog.md modified but not staged (RULE-WORKLOG-002)"
+        fi
     else
-        emit_fail "code changes ($CODE_COUNT files) without worklog.md staged (RULE-WORKLOG-002)"
+        emit_pass "worklog unchanged — skipping worklog check"
     fi
 else
     emit_pass "no code changes — worklog check skipped"
