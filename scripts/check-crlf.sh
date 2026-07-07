@@ -54,8 +54,8 @@ PATTERNS=(
   "guard/scripts/*.sh"
   "standards/scripts/*.sh"
   "bootstrap.sh"
-  "save-work.sh"
-  "status.sh"
+  "scripts/save-work.sh"
+  "scripts/status.sh"
 )
 
 FOUND_CRLF=0
