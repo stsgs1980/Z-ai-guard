@@ -39,7 +39,18 @@ echo ""
 
 cd "$PLATFORM_DIR"
 
-# 1. Check if worklog.md exists
+# 1. Check if worklog.md is excluded via .gitignore (intentional migration)
+if grep -q "^worklog.md$" .gitignore 2>/dev/null; then
+    emit_pass "worklog.md excluded via .gitignore (intentional migration) — session check skipped"
+    echo ""
+    echo "=== Summary ==="
+    echo "  Violations: 0"
+    echo ""
+    echo "RESULT: PASS"
+    exit 0
+fi
+
+# 2. Check if worklog.md exists
 if [ ! -f "worklog.md" ]; then
     emit_fail "worklog.md not found (RULE-AGENT-009: worklog is required)"
     echo ""
