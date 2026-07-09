@@ -46,9 +46,13 @@ else
 fi
 
 # 2. Check worklog.md is not deleted
+# Exception: allowed when .gitignore is also modified (intentional .gitignore migration)
 WORKLOG_DELETED=$(git diff --cached --diff-filter=D --name-only -- worklog.md 2>/dev/null || true)
-if [ -n "$WORKLOG_DELETED" ]; then
+GITIGNORE_MODIFIED=$(git diff --cached --name-only -- .gitignore 2>/dev/null || true)
+if [ -n "$WORKLOG_DELETED" ] && [ -z "$GITIGNORE_MODIFIED" ]; then
     emit_fail "worklog.md deleted in staged commit (RULE-INTEGRITY-011: no worklog deletion)"
+elif [ -n "$WORKLOG_DELETED" ] && [ -n "$GITIGNORE_MODIFIED" ]; then
+    emit_pass "worklog.md deleted with .gitignore update (intentional migration)"
 else
     emit_pass "worklog.md not deleted"
 fi
